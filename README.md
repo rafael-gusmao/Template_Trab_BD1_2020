@@ -90,8 +90,7 @@ EMPRESA: Campo que armazena o nome da empresa que o usuário trabalha.
 ### 7	MODELO FÍSICO<br>
      
 ```
-create database ATVGEN;
-use ATVGEN;
+
 
 create table PROFISSAO (
 	codigo serial,
@@ -176,10 +175,6 @@ drop table if exists ATIVIDADE cascade;
 drop table if exists TRABALHO cascade;
 drop table if exists CURSO cascade;
 
-/* Criação do banco de dados */
-
-create database ATVGEN;
-use ATVGEN;
 
 /* Criação das tabelas */
 
