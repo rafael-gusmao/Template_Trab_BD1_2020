@@ -1,12 +1,13 @@
-# TRABALHO 01:  Título do Trabalho
+# TRABALHO 01:  ATVGen
 Trabalho desenvolvido durante a disciplina de BD1
 
 # Sumário
 
 ### 1. COMPONENTES<br>
 Integrantes do grupo<br>
-primeiro_componente_do_grupo:email_primeiro_componente@dominio.com<br>
-segundo_componente_do_grupo:email_segundo_componente@dominio.com<br>
+Matheus Costa Evangelista:matheus20costa@gmail.com<br>
+Natan Paschoal Cypriano:cypriano450@gmail.com<br>
+Rafael de Almeida Viana Gusmão:rafaelvgusmao@yahoo.com.br<br>
 ...<br>
 
 ### 2.INTRODUÇÃO E MOTIVAÇÃO<br>
