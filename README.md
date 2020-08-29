@@ -26,16 +26,15 @@ O sistema proposto ATVGen conterá as informações aqui detalhadas. Dos usuári
 ### 4.PROTOTIPAÇÃO, PERGUNTAS A SEREM RESPONDIDAS E TABELA DE DADOS<br>
 #### 4.1 RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
 
+![Alt text](https://github.com/rafael-gusmao/Template_Trab_BD1_2020/blob/master/images/prototipo.png "Protótipo")
 ![Arquivo PDF do Protótipo Balsamiq do ATV Gen](https://github.com/rafael-gusmao/Template_Trab_BD1_2020/blob/master/arquivos/ATVGen.pdf "ATV Gen")
 #### 4.2 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
     
 > O sistem ATVGen precisa inicialmente dos seguintes relatórios:
-* Relatório com as atividades diarias do usuario (exercicios fisicos, passeios, etc...) revelando a descrição, a localização e a data em que atividade ocorreu.
-* Relatório com os trabalhos produzidos pelo usuario (artes, textos, desenhos, musicas, codigos programação, etc...) em que conterá uma descrição do trabalho, o coteudo em si e a data da postagem.
-* Relatorio que mostre os cursos que o usuario ja fez ou esta fazendo, o nome do curso, a quantidade de periodos que ele ja fez desse curso e a descrição.
-* Relatório que mostre as opiniões do usuario sobre determinado curso que o usuario ja fez ou esta fazendo. 
-* Relatório que mostre o numero de seguidores que esse usuario possue e quem são eles, revelando seus nomes e foto de perfil.
-
+* Relatório com as atividades diárias do usuário (exercícios fisicos, passeios, etc...) revelando a descrição, a localização e a data e hora em que atividade ocorreu.
+* Relatório com os trabalhos produzidos pelo usuário (artes, textos, desenhos, musicas, códigos de programação, etc...) em que conterá uma descrição do trabalho, o conteúdo em si e a data da postagem.
+* Relatório que mostre os cursos que o usuário já fez ou está fazendo, o nome do curso, a quantidade de períodos/módulos que ele já cumpriu desse curso e a descrição.
+* Relatório que mostre o número de seguidores que esse usuário possui e quem são, revelando seus nomes e foto de perfil.
  
  
 #### 4.3 TABELA DE DADOS DO SISTEMA:
@@ -55,9 +54,7 @@ O sistema proposto ATVGen conterá as informações aqui detalhadas. Dos usuári
         Criar o esquema de forma a garantir a redução de informação redundante, possibilidade de valores null, 
         e tuplas falsas (Aplicar os conceitos de normalização abordados).   
         
-![Alt text](https://github.com/rafael-gusmao/Template_Trab_BD1_2020/blob/master/images/Conceitual.png "Modelo Conceitual")
-    
-    
+![Alt text](https://github.com/rafael-gusmao/Template_Trab_BD1_2020/blob/master/images/Conceitual.png "Modelo Conceitual")    
         
     
 #### 5.1 Validação do Modelo Conceitual
