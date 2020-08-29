@@ -30,12 +30,12 @@ O sistema proposto ATVGen conterá as informações aqui detalhadas. Dos usuári
 ![Arquivo PDF do Protótipo Balsamiq do ATV Gen](https://github.com/rafael-gusmao/Template_Trab_BD1_2020/blob/master/arquivos/ATVGen.pdf "ATV Gen")
 #### 4.2 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
     
-> O sistema ATVGen precisa inicialmente das seguintes funcionalidades:
-* Registro das atividades diárias do usuário (exercícios fisicos, passeios, etc...) revelando a descrição, a localização e a data e hora em que as atividades ocorreram.
-* Registro dos trabalhos produzidos pelo usuário (artes, textos, desenhos, musicas, códigos de programação, etc...), contendo uma descrição do trabalho, o conteúdo em si e a data da postagem.
-* Registro dos cursos que o usuário já fez ou está fazendo, o nome do curso, a quantidade de períodos/módulos que ele já cumpriu desse curso e a descrição.
-* Registro que mostre o número de seguidores que esse usuário possui e quem são, revelando seus nomes e foto de perfil.
-* Registro que mostre as informações pessoas do usuario, seu nome, profissão, numero de telefone(opcional), email(opcional) e data de nascimento.
+> O sistema ATVGen precisa inicialmente dos seguintes relatórios:
+* RRelatório das atividades diárias do usuário (exercícios fisicos, passeios, etc...) revelando a descrição, a localização e a data e hora em que as atividades ocorreram.
+* Relatório dos trabalhos produzidos pelo usuário (artes, textos, desenhos, musicas, códigos de programação, etc...), contendo uma descrição do trabalho, o conteúdo em si e a data da postagem.
+* Relatório dos cursos que o usuário já fez ou está fazendo, o nome do curso, a quantidade de períodos/módulos que ele já cumpriu desse curso e a descrição.
+* Relatório que mostre o número de seguidores que esse usuário possui e quem são, revelando seus nomes e foto de perfil.
+* Relatório que mostre as informações pessoas do usuario, seu nome, profissão, numero de telefone(opcional), email(opcional) e data de nascimento.
  
  
 #### 4.3 TABELA DE DADOS DO SISTEMA:
