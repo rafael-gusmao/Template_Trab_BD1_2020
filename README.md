@@ -26,7 +26,7 @@ O sistema proposto ATVGen conterá as informações aqui detalhadas. Dos usuári
 ### 4.PROTOTIPAÇÃO, PERGUNTAS A SEREM RESPONDIDAS E TABELA DE DADOS<br>
 #### 4.1 RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
 
-![Arquivo PDF do Protótipo Balsamiq do ATV Gen](https://github.com/rafael-gusmao/Template_Trab_BD1_2020/blob/master/ATVGen.pdf "ATV Gen")
+![Arquivo PDF do Protótipo Balsamiq do ATV Gen](https://github.com/rafael-gusmao/Template_Trab_BD1_2020/blob/master/arquivos/ATVGen.pdf "ATV Gen")
 #### 4.2 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
     
 > O sistem ATVGen precisa inicialmente dos seguintes relatórios:
