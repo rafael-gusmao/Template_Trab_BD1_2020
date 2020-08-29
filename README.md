@@ -34,12 +34,11 @@ O sistema proposto ATVGen conterá as informações aqui detalhadas. Dos usuári
 * Registro das atividades diárias do usuário (exercícios fisicos, passeios, etc...) revelando a descrição, a localização e a data e hora em que as atividades ocorreram.
 * Registro dos trabalhos produzidos pelo usuário (artes, textos, desenhos, musicas, códigos de programação, etc...), contendo uma descrição do trabalho, o conteúdo em si e a data da postagem.
 * Registro dos cursos que o usuário já fez ou está fazendo, o nome do curso, a quantidade de períodos/módulos que ele já cumpriu desse curso e a descrição.
-* Relatório que mostre o número de seguidores que esse usuário possui e quem são, revelando seus nomes e foto de perfil.
+* Registro que mostre o número de seguidores que esse usuário possui e quem são, revelando seus nomes e foto de perfil.
+* Registro que mostre as informações pessoas do usuario, seu nome, profissão, numero de telefone(opcional), email(opcional) e data de nascimento.
  
  
 #### 4.3 TABELA DE DADOS DO SISTEMA:
-    a) Esta tabela deve conter todos os atributos do sistema e um mínimo de 10 linhas/registros de dados.
-    b) Esta tabela tem a intenção de simular um relatório com todos os dados que serão armazenados 
     
 ![Simulação de todos os dados armazenados](https://github.com/rafael-gusmao/Template_Trab_BD1_2020/blob/master/arquivos/TabelaSistemaATVGen_sample.xlsx?raw=true "Tabela - Sistema ATVGen")
     
