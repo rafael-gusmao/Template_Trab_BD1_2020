@@ -25,12 +25,8 @@ O sistema proposto ATVGen conterá as informações aqui detalhadas. Dos usuári
 
 ### 4.PROTOTIPAÇÃO, PERGUNTAS A SEREM RESPONDIDAS E TABELA DE DADOS<br>
 #### 4.1 RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
-Neste ponto a codificação não e necessária, somente as ideias de telas devem ser criadas, o princípio aqui é pensar na criação da interface para identificar possíveis informações a serem armazenadas ou descartadas <br>
 
-Sugestão: https://balsamiq.com/products/mockups/<br>
-
-![Alt text](https://github.com/rafael-gusmao/Template_Trab_BD1_2020/blob/master/ATVGen.pdf "Title")
-![Arquivo PDF do Protótipo Balsamiq feito para Empresa Devcom](https://github.com/rafael-gusmao/Template_Trab_BD1_2020/blob/master/ATVGen.pdf "ATV Gen")
+![Arquivo PDF do Protótipo Balsamiq do ATV Gen](https://github.com/rafael-gusmao/Template_Trab_BD1_2020/blob/master/ATVGen.pdf "ATV Gen")
 #### 4.2 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
     
 > O sistem ATVGen precisa inicialmente dos seguintes relatórios:
