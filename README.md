@@ -26,7 +26,7 @@ O sistema proposto ATVGen conterá as informações aqui detalhadas. Dos usuári
 ### 4.PROTOTIPAÇÃO, PERGUNTAS A SEREM RESPONDIDAS E TABELA DE DADOS<br>
 #### 4.1 RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
 
-![Alt text](https://github.com/rafael-gusmao/Template_Trab_BD1_2020/blob/master/images/prototipo.png "Protótipo")
+![Alt text](https://github.com/rafael-gusmao/Template_Trab_BD1_2020/blob/master/images/prototipo.png "Protótipo")<br>
 ![Arquivo PDF do Protótipo Balsamiq do ATV Gen](https://github.com/rafael-gusmao/Template_Trab_BD1_2020/blob/master/arquivos/ATVGen.pdf "ATV Gen")
 #### 4.2 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
     
@@ -59,7 +59,27 @@ O sistema proposto ATVGen conterá as informações aqui detalhadas. Dos usuári
     EXEMPLO:
     CLIENTE: Tabela que armazena as informações relativas ao cliente<br>
     CPF: campo que armazena o número de Cadastro de Pessoa Física para cada cliente da empresa.<br>
+    
+USUARIO: Tabela que armazena as informações relativas ao usuário do sistema.
+NOME: Campo que armazena o nome de usuário.
+E-MAIL: Campo que armazena o e-mail do usuário.
+TELEFONE: Campo que armazena o telefone de contato do usuário.
+DATA_NASCIMENTO: Campo que armazena a data de nascimento do usuário.
+SENHA: Campo que armazena a senha do usuário.
+SEXO: Campo que armazena o sexo (M ou F) do usuário.
 
+ENDERECO: Tabela que armazena as informações relativas ao endereço de um usuário.
+RUA: Campo que armazena o nome da rua.
+NUMERO: Campo que armazena o número da residência.
+BAIRRO: Campo que armazena o nome do bairro.
+CIDADE: Campo que armazena o nome da cidade.
+ESTADO: Campo que armazena o nome do estado.
+CEP: Campo que armazena o CEP relacionado ao endereço.
+
+PROFISSAO: Tabela que armazena as informações relativas à profissão de um usuário.
+NOME: Campo que armazena o número da profissão.
+DESCRICAO: Campo que armazena a descrição (informação detalhada) de uma profissão
+EMPRESA: Campo que armazena o nome da empresa que o usuário trabalha.
 
 ### 6	MODELO LÓGICO<br>
         
