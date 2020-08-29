@@ -30,7 +30,7 @@ O sistema proposto ATVGen conterá as informações aqui detalhadas. Dos usuári
 ![Arquivo PDF do Protótipo Balsamiq do ATV Gen](https://github.com/rafael-gusmao/Template_Trab_BD1_2020/blob/master/arquivos/ATVGen.pdf "ATV Gen")
 #### 4.2 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
     
-> O sistem ATVGen precisa inicialmente dos seguintes relatórios:
+> O sistema ATVGen precisa inicialmente dos seguintes relatórios:
 * Relatório com as atividades diárias do usuário (exercícios fisicos, passeios, etc...) revelando a descrição, a localização e a data e hora em que atividade ocorreu.
 * Relatório com os trabalhos produzidos pelo usuário (artes, textos, desenhos, musicas, códigos de programação, etc...) em que conterá uma descrição do trabalho, o conteúdo em si e a data da postagem.
 * Relatório que mostre os cursos que o usuário já fez ou está fazendo, o nome do curso, a quantidade de períodos/módulos que ele já cumpriu desse curso e a descrição.
@@ -54,32 +54,53 @@ O sistema proposto ATVGen conterá as informações aqui detalhadas. Dos usuári
     [Grupo02]: [Nomes dos que participaram na avaliação]
 
 #### 5.2 Descrição dos dados 
-    [objeto]: [descrição do objeto]
-    
-    EXEMPLO:
-    CLIENTE: Tabela que armazena as informações relativas ao cliente<br>
-    CPF: campo que armazena o número de Cadastro de Pessoa Física para cada cliente da empresa.<br>
-    
-USUARIO: Tabela que armazena as informações relativas ao usuário do sistema.
-NOME: Campo que armazena o nome de usuário.
-E-MAIL: Campo que armazena o e-mail do usuário.
-TELEFONE: Campo que armazena o telefone de contato do usuário.
-DATA_NASCIMENTO: Campo que armazena a data de nascimento do usuário.
-SENHA: Campo que armazena a senha do usuário.
-SEXO: Campo que armazena o sexo (M ou F) do usuário.
+USUARIO: Tabela que armazena as informações relativas ao usuário do sistema.<br>
+NOME: Campo que armazena o nome de usuário.<br>
+E-MAIL: Campo que armazena o e-mail do usuário.<br>
+TELEFONE: Campo que armazena o telefone de contato do usuário.<br>
+DATA_NASCIMENTO: Campo que armazena a data de nascimento do usuário.<br>
+SENHA: Campo que armazena a senha do usuário.<br>
+SEXO: Campo que armazena o sexo (M ou F) do usuário.<br>
 
-ENDERECO: Tabela que armazena as informações relativas ao endereço de um usuário.
-RUA: Campo que armazena o nome da rua.
-NUMERO: Campo que armazena o número da residência.
-BAIRRO: Campo que armazena o nome do bairro.
-CIDADE: Campo que armazena o nome da cidade.
-ESTADO: Campo que armazena o nome do estado.
-CEP: Campo que armazena o CEP relacionado ao endereço.
+ENDERECO: Tabela que armazena as informações relativas ao endereço de um usuário.<br>
+RUA: Campo que armazena o nome da rua.<br>
+NUMERO: Campo que armazena o número da residência.<br>
+BAIRRO: Campo que armazena o nome do bairro.<br>
+CIDADE: Campo que armazena o nome da cidade.<br>
+ESTADO: Campo que armazena o nome do estado.<br>
+CEP: Campo que armazena o CEP relacionado ao endereço.<br>
 
-PROFISSAO: Tabela que armazena as informações relativas à profissão de um usuário.
-NOME: Campo que armazena o número da profissão.
-DESCRICAO: Campo que armazena a descrição (informação detalhada) de uma profissão
-EMPRESA: Campo que armazena o nome da empresa que o usuário trabalha.
+PROFISSAO: Tabela que armazena as informações relativas à profissão de um usuário.<br>
+NOME: Campo que armazena o número da profissão.<br>
+DESCRICAO: Campo que armazena a descrição (informação detalhada) de uma profissão.<br>
+EMPRESA: Campo que armazena o nome da empresa que o usuário trabalha.<br>
+
+CURSO: Tabela que armazena as informações relativas a um curso cadastrado pelo usuário.<br>
+COD_CURSO: Campo que armazena o número identificador do curso.<br>
+NOME: Campo que armazena o nome do curso cadastrado pelo usuário.<br>
+CARGA_HORARIA: Campo que armazena o número de horas para conclusão do curso.<br>
+DESCRICAO: Campo que armazena informações detalhadas sobre o curso.<br>
+NUMERO_MODULOS: Campo que armazena o número de módulos (caso haja) que o curso possui.<br>
+
+TRABALHO: Tabela que armazena as informações relativas a um trabalho cadastrado pelo usuário.<br>
+COD_TRABALHO: Campo que armazena o número identificador do trabalho.<br>
+NOME: Campo que armazena o nome do trabalho cadastrado pelo usuário.<br>
+DESCRICAO: Campo que armazena informações detalhadas sobre o trabalho em questão.<br>
+CONTEUDO: Conteúdo do trabalho, podendo ser texto, imagem, música, vídeo, etc.<br>
+DATA_HORA: Campo que armazena um marcador de data e hora da publicação do trabalho.<br>
+TAGS: Campo que armazena palavras-chave relacionadas ao trabalho.<br>
+
+ATIVIDADE: Tabela que armazena as informações relativas a uma atividade realizada pelo usuário.<br>
+COD_ATIVIDADE: Campo que armazena o número identificador da atividade.<br>
+NOME: Campo que armazena o nome da atividade cadastrada pelo usuário.<br>
+DESCRICAO: Campo que armazena informações detalhadas sobre a atividade realizada.<br>
+TIPO: Campo que armazena o tipo de atividade (física, recreativa, etc.).<br>
+LOCALIZACAO: Campo que armazena a localização onde a atividade foi realizada.<br>
+DATA_HORA: Campo que armazena um marcador de data e hora da publicação da atividade.<br>
+
+SEGUIR: Tabela que contém informações sobre interações "seguir" entre os usuários.<br>
+DATA_HORA: Campo que armazena um marcador de data e hora quando aconteceu a interação.<br>
+
 
 ### 6	MODELO LÓGICO<br>
         
