@@ -5,9 +5,9 @@ Trabalho desenvolvido durante a disciplina de BD1
 
 ### 1. COMPONENTES<br>
 Integrantes do grupo<br>
-Matheus Costa Evangelista:matheus20costa@gmail.com<br>
-Natan Paschoal Cypriano:cypriano450@gmail.com<br>
-Rafael de Almeida Viana Gusmão:rafaelvgusmao@yahoo.com.br<br>
+Matheus Costa Evangelista: matheus20costa@gmail.com<br>
+Natan Paschoal Cypriano: cypriano450@gmail.com<br>
+Rafael de Almeida Viana Gusmão: rafaelvgusmao@yahoo.com.br<br>
 ...<br>
 
 ### 2.INTRODUÇÃO E MOTIVAÇÃO<br>
@@ -66,7 +66,7 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
         Criar o esquema de forma a garantir a redução de informação redundante, possibilidade de valores null, 
         e tuplas falsas (Aplicar os conceitos de normalização abordados).   
         
-![Alt text](https://github.com/discipbd1/trab01/blob/master/images/concept_sample.png?raw=true "Modelo Conceitual")
+![Alt text](https://github.com/rafael-gusmao/Template_Trab_BD1_2020/blob/master/images/Conceitual.png "Modelo Conceitual")
     
     
         
@@ -87,12 +87,16 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
         a) inclusão do esquema lógico do banco de dados
         b) verificação de correspondencia com o modelo conceitual 
         (não serão aceitos modelos que não estejam em conformidade)
+        
+![Alt text](https://github.com/rafael-gusmao/Template_Trab_BD1_2020/blob/master/images/Logico.png "Modelo Lógico")
+
+
 
 ### 7	MODELO FÍSICO<br>
         a) inclusão das instruções de criacão das estruturas em SQL/DDL 
         (criação de tabelas, alterações, etc..) 
         
-       
+
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
         a) inclusão das instruções de inserção dos dados nas tabelas criadas pelo script de modelo físico
         (Drop para exclusão de tabelas + create definição de para tabelas e estruturas de dados + insert para dados a serem inseridos)
