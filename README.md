@@ -82,16 +82,237 @@ O sistema proposto ATVGen conterá as informações aqui detalhadas. Dos usuári
 
 
 ### 7	MODELO FÍSICO<br>
-        a) inclusão das instruções de criacão das estruturas em SQL/DDL 
-        (criação de tabelas, alterações, etc..) 
+     
+```
+create database ATVGEN;
+use ATVGEN;
+
+create table PROFISSAO (
+	codigo serial,
+    descricao varchar(240),
+    nome varchar(80),
+    empresa varchar(80),
+    primary key(codigo)
+);
+
+create table ENDERECO (
+	codigo serial,
+    bairro varchar(80),
+    numero int,
+    cidade varchar(80),
+    estado varchar(80),
+    cep varchar(9),
+    primary key(codigo)
+);
+
+create table USUARIO (
+	cod_usuario serial,
+    nome varchar(50),
+    email varchar(80),
+    senha varchar(16),
+    telefone varchar(15),
+    data_nascimento date,
+    sexo char(1),
+    endereco int, /*chave estrangeira*/
+    profissao int, /*chave estrangeira*/
+    primary key(cod_usuario)
+);
+
+create table SEGUIR (
+	codigo serial,
+    seguindo int, /*chave estrangeira, esse Ã© o usuario que esta sendo seguido (semelhante ao TWITTER e INSTAGRAM)*/
+    seguidor int, /*chave estrangeira, esse Ã© o usuario que irÃ¡ seguir o usuario de cima*/
+    data_hora datetime,
+    primary key(codigo)
+);
+
+create table ATIVIDADE(
+	cod_atividade serial,
+    data_hora datetime,
+    tipo varchar(30),
+    nome varchar(50),
+    descricao varchar(240),
+    localizacao varchar(240),/*GeolocalizaÃ§Ã£o*/
+    cod_usuario int, /*chave estrangeira*/
+    primary key(cod_atividade)
+);
+
+create table TRABALHO(
+	cod_trabalho serial,
+    conteudo varchar(240), /*coteudo da postagem (foto, video, texto, etc)*/
+    data_hora datetime,
+    tipo varchar(30),
+    nome varchar(50),
+    descricao varchar(240),
+    cod_usuario int, /*chave estrangeira*/
+    primary key(cod_trabalho)
+);
+
+create table CURSO(
+	cod_curso serial,
+    numero_modulos int,
+    descricao varchar(240),
+    carga_horaria int,
+    nome varchar(50),
+    cod_usuario int, /*chave estrangeira*/
+    primary key(cod_curso)
+);
+```
         
 
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
-        a) inclusão das instruções de inserção dos dados nas tabelas criadas pelo script de modelo físico
-        (Drop para exclusão de tabelas + create definição de para tabelas e estruturas de dados + insert para dados a serem inseridos)
-        b) Criar um novo banco de dados para testar a restauracao 
-        (em caso de falha na restauração o grupo não pontuará neste quesito)
-        c) formato .SQL
+```
+drop table if exists PROFISSAO cascade;
+drop table if exists ENDERECO cascade;
+drop table if exists USUARIO cascade;
+drop table if exists SEGUIR cascade;
+drop table if exists ATIVIDADE cascade;
+drop table if exists TRABALHO cascade;
+drop table if exists CURSO cascade;
+
+/* Criação do banco de dados */
+
+create database ATVGEN;
+use ATVGEN;
+
+/* Criação das tabelas */
+
+create table PROFISSAO (
+    codigo serial,
+    descricao varchar(240),
+    nome varchar(80),
+    empresa varchar(80),
+    primary key(codigo)
+);
+
+create table ENDERECO (
+    codigo serial,
+    bairro varchar(80),
+    numero int,
+    cidade varchar(80),
+    estado varchar(80),
+    cep varchar(9),
+    primary key(codigo)
+);
+
+create table USUARIO (
+    cod_usuario serial,
+    nome varchar(50),
+    email varchar(80),
+    senha varchar(16),
+    telefone varchar(15),
+    data_nascimento date,
+    sexo char(1),
+    endereco int, /*chave estrangeira*/
+    profissao int, /*chave estrangeira*/
+    primary key(cod_usuario)
+);
+
+create table SEGUIR (
+    codigo serial,
+    seguindo int, /*chave estrangeira, esse é o usuario que esta sendo seguido (semelhante ao TWITTER e INSTAGRAM)*/
+    seguidor int, /*chave estrangeira, esse é o usuario que irá seguir o usuario de cima*/
+    data_hora timestamp,
+    primary key(codigo)
+);
+
+create table ATIVIDADE(
+    cod_atividade serial,
+    data_hora timestamp,
+    tipo varchar(30),
+    nome varchar(50),
+    descricao varchar(240),
+    localizacao varchar(240),/*Geolocalização*/
+    cod_usuario int, /*chave estrangeira*/
+    primary key(cod_atividade)
+);
+
+create table TRABALHO(
+    cod_trabalho serial,
+    conteudo varchar(240), /*coteudo da postagem (foto, video, texto, etc)*/
+    data_hora timestamp,
+    tag varchar(30),
+    nome varchar(50),
+    descricao varchar(240),
+    cod_usuario int, /*chave estrangeira*/
+    primary key(cod_trabalho)
+);
+
+create table CURSO(
+    cod_curso serial,
+    numero_modulos int,
+    descricao varchar(240),
+    carga_horaria int,
+    nome varchar(50),
+    cod_usuario int, /*chave estrangeira*/
+    primary key(cod_curso)
+);
+
+alter table USUARIO add foreign key(profissao) references PROFISSAO(codigo);
+alter table USUARIO add foreign key(endereco) references ENDERECO(codigo);
+alter table SEGUIR add foreign key(seguidor) references USUARIO(cod_usuario);
+alter table SEGUIR add foreign key(seguindo) references USUARIO(cod_usuario);
+alter table ATIVIDADE add foreign key(cod_usuario) references USUARIO(cod_usuario);
+alter table CURSO add foreign key(cod_usuario) references USUARIO(cod_usuario);
+alter table TRABALHO add foreign key(cod_usuario) references USUARIO(cod_usuario);
+
+
+/* Inserção de dados */
+
+insert into PROFISSAO values
+
+(1, 'Professor da disciplina de Programação Orientada a Objetos.', 'Professor', 'Instituto Federal do Espírito Santo'),
+ (2, 'Responsável pelo reparo e manutenção de computadores', 'Técnico em Informática', 'TecnoVix'),
+(3, 'Desenvolvedor, atualmente crio aplicativos para celular', 'Programador', 'PicPay'),
+(4, 'Pintor e desenhista', 'Designer', 'Desempregado'),
+(5, 'Amante de jogos e estudante de gameficação', 'Desnevolvedor', 'SENAI');
+                              
+insert into ENDERECO values
+
+(1, 'Jacaraípe', 855, 'Serra', 'ES', '15871-325'),
+(2, 'Alto da Serra', 434, 'Petrópolis', 'RJ', '16555-701'),
+(3, 'Jardim da Penha', 12, 'Vitória', 'ES', '35226-095'),
+(4, 'Coqueiral de Itaparica', 1265, 'Vila Velha', 'ES', '13597-951');
+                            
+insert into USUARIO values
+
+(1, 'Luana Gomes', 'lugomes@gmail.com', 'l1223', '999888776', '1998-11-16', 'F', 2, 2),
+(2, 'Marcio Lopes', 'marlopes@gmail.com', 'ml1551', '989884611', '1996-10-06', 'M', 1, 3),
+(3, 'Fernando Pires', 'fepires@gmail.com', 'fp03021', '988506123', '1997-04-01', 'M', 4, 4),
+(4, 'Marina Dias', 'madias@gmail.com', 'md8246', '971727374', '1999-08-10', 'F', 3, 1);
+                            
+insert into SEGUIR values
+
+(1, 4, 3, '2020-01-01 00:00:01'),
+(2, 3, 1, '2020-09-25 09:45:32'),
+(3, 4, 2, '2020-08-24 10:25:12'),
+(4, 1, 2, '2020-01-28 11:21:02'),
+(5, 3, 2, '2020-11-19 07:01:52'),
+(6, 2, 3, '2020-05-09 16:45:39'),
+(7, 4, 1, '2020-12-08 19:35:22');
+                           
+insert into ATIVIDADE values
+
+(1, '2020-04-16', 'Física', 'Corrida', 'Corrida matinal na praia', 'Serra', 1),
+(2, '2020-05-13', 'Música', 'Aula de canto', 'Treino para aprimorar o alcance de notas mais agudas', 'Vila Velha', 3),
+(3, '2020-06-28', 'Física', 'Treino aeróbico', 'Treino de core com ênfase aprimoramento da capacidade pulmonar', 'Vitória', 4),
+(4, '2020-06-30', 'Social', 'Montagem de cestas básicas', 'Montagem de cestas básicas para doação', 'Petrópolis', 2);
+                              
+insert into TRABALHO values
+
+(1, 'Rosas são vermelhas', '2020-12-08 19:35:22', 'Literatura', 'Meu poema', 'Poema que fiz como passatempo', 1),
+(2, 'MyPainting.png', '2020-05-08 16:44:12', 'Arte', 'Pintura de paisagem', 'Pintura feita a partir da vista de minha casa', 2),
+(3, 'MyVideo.amv', '2020-09-08 16:44:12', 'Arte', 'Filme amador', 'Compilado de cenas que fiz com auxílio do meu irmão', 4),
+(4, 'Artigo sobre redação no ENEM', '2020-08-01 21:40:42', 'Texto', 'Redação ENEM 2020', 'Um exercício de redação que fiz para o ENEM', 3);
+                              
+insert into CURSO values
+
+(1, 1, 'Noções básicas de lógica de programação', 20, 'Introdução à Lógica de Programação', 1),
+(2, 4, 'Programação orientada a objetos avançada, com desenvolvimento de projetos práticos', 60, 'Orientação a Objetos com Java e UML', 1),
+(3, 1, 'Aprenda os segredos da respiração e da meditação', 8, 'Meditação para iniciantes', 3),
+(4, 2, 'Curso de exercícios para serem praticados em casa apenas com o peso do corpo', 10, 'Como se exercitar em casa?', 4);
+```
+
 
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
