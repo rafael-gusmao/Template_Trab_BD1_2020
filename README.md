@@ -54,51 +54,51 @@ O sistema proposto ATVGen conterá as informações aqui detalhadas. Dos usuári
 
 #### 5.2 Descrição dos dados 
     USUARIO: Tabela que armazena as informações relativas ao usuário do sistema.
-    NOME: Campo que armazena o nome de usuário.
-    E-MAIL: Campo que armazena o e-mail do usuário.
-    TELEFONE: Campo que armazena o telefone de contato do usuário.
-    DATA_NASCIMENTO: Campo que armazena a data de nascimento do usuário.
-    SENHA: Campo que armazena a senha do usuário.
-    SEXO: Campo que armazena o sexo (M ou F) do usuário.
+    nome: Campo que armazena o nome de usuário.
+    email: Campo que armazena o e-mail do usuário.
+    telefone: Campo que armazena o telefone de contato do usuário.
+    data_nascimento: Campo que armazena a data de nascimento do usuário.
+    senha: Campo que armazena a senha do usuário.
+    sexo: Campo que armazena o sexo (M ou F) do usuário.
 
     ENDERECO: Tabela que armazena as informações relativas ao endereço de um usuário.
-    RUA: Campo que armazena o nome da rua.
-    NUMERO: Campo que armazena o número da residência.
-    BAIRRO: Campo que armazena o nome do bairro.
-    CIDADE: Campo que armazena o nome da cidade.
-    ESTADO: Campo que armazena o nome do estado.
-    CEP: Campo que armazena o CEP relacionado ao endereço.
+    rua: Campo que armazena o nome da rua.
+    numero: Campo que armazena o número da residência.
+    bairro: Campo que armazena o nome do bairro.
+    cidade: Campo que armazena o nome da cidade.
+    estado: Campo que armazena o nome do estado.
+    cep: Campo que armazena o CEP relacionado ao endereço.
 
     PROFISSAO: Tabela que armazena as informações relativas à profissão de um usuário.
-    NOME: Campo que armazena o número da profissão.
-    DESCRICAO: Campo que armazena a descrição (informação detalhada) de uma profissão.
-    EMPRESA: Campo que armazena o nome da empresa que o usuário trabalha.
+    nome: Campo que armazena o nome da profissão.
+    descricao: Campo que armazena a descrição (informação detalhada) de uma profissão.
+    empresa: Campo que armazena o nome da empresa que o usuário trabalha.
 
     CURSO: Tabela que armazena as informações relativas a um curso cadastrado pelo usuário.
-    COD_CURSO: Campo que armazena o número identificador do curso.
-    NOME: Campo que armazena o nome do curso cadastrado pelo usuário.
-    CARGA_HORARIA: Campo que armazena o número de horas para conclusão do curso.
-    DESCRICAO: Campo que armazena informações detalhadas sobre o curso.
-    NUMERO_MODULOS: Campo que armazena o número de módulos (caso haja) que o curso possui.
+    cod_curso: Campo que armazena o número identificador do curso.
+    nome: Campo que armazena o nome do curso cadastrado pelo usuário.
+    carga_horaria: Campo que armazena o número de horas para conclusão do curso.
+    descricao: Campo que armazena informações detalhadas sobre o curso.
+    numero_modulos: Campo que armazena o número de módulos (caso haja) que o curso possui.
 
     TRABALHO: Tabela que armazena as informações relativas a um trabalho cadastrado pelo usuário.
-    COD_TRABALHO: Campo que armazena o número identificador do trabalho.
-    NOME: Campo que armazena o nome do trabalho cadastrado pelo usuário.
-    DESCRICAO: Campo que armazena informações detalhadas sobre o trabalho em questão.
-    CONTEUDO: Conteúdo do trabalho, podendo ser texto, imagem, música, vídeo, etc.
-    DATA_HORA: Campo que armazena um marcador de data e hora da publicação do trabalho.
-    TAGS: Campo que armazena palavras-chave relacionadas ao trabalho.
+    cod_trabalho: Campo que armazena o número identificador do trabalho.
+    nome: Campo que armazena o nome do trabalho cadastrado pelo usuário.
+    descricao: Campo que armazena informações detalhadas sobre o trabalho em questão.
+    conteudo: Conteúdo do trabalho, podendo ser texto, imagem, música, vídeo, etc.
+    data_hora: Campo que armazena um marcador de data e hora da publicação do trabalho.
+    tags: Campo que armazena palavras-chave relacionadas ao trabalho.
 
     ATIVIDADE: Tabela que armazena as informações relativas a uma atividade realizada pelo usuário.
-    COD_ATIVIDADE: Campo que armazena o número identificador da atividade.
-    NOME: Campo que armazena o nome da atividade cadastrada pelo usuário.
-    DESCRICAO: Campo que armazena informações detalhadas sobre a atividade realizada.
-    TIPO: Campo que armazena o tipo de atividade (física, recreativa, etc.).
-    LOCALIZACAO: Campo que armazena a localização onde a atividade foi realizada.
-    DATA_HORA: Campo que armazena um marcador de data e hora da publicação da atividade.
+    cod_atividade: Campo que armazena o número identificador da atividade.
+    nome: Campo que armazena o nome da atividade cadastrada pelo usuário.
+    descricao: Campo que armazena informações detalhadas sobre a atividade realizada.
+    tipo: Campo que armazena o tipo de atividade (física, recreativa, etc.).
+    localizacao: Campo que armazena a localização onde a atividade foi realizada.
+    data_hora: Campo que armazena um marcador de data e hora da publicação da atividade.
 
     SEGUIR: Tabela que contém informações sobre interações "seguir" entre os usuários.
-    DATA_HORA: Campo que armazena um marcador de data e hora quando aconteceu a interação.
+    data_hora: Campo que armazena um marcador de data e hora quando aconteceu a interação.
 
 
 ### 6	MODELO LÓGICO<br>
@@ -111,7 +111,7 @@ O sistema proposto ATVGen conterá as informações aqui detalhadas. Dos usuári
      
 ```
 create table PROFISSAO (
-	codigo serial,
+    codigo serial,
     descricao varchar(240),
     nome varchar(80),
     empresa varchar(80),
@@ -119,7 +119,7 @@ create table PROFISSAO (
 );
 
 create table ENDERECO (
-	codigo serial,
+    codigo serial,
     bairro varchar(80),
     numero int,
     cidade varchar(80),
@@ -129,7 +129,7 @@ create table ENDERECO (
 );
 
 create table USUARIO (
-	cod_usuario serial,
+    cod_usuario serial,
     nome varchar(50),
     email varchar(80),
     senha varchar(16),
@@ -142,26 +142,26 @@ create table USUARIO (
 );
 
 create table SEGUIR (
-	codigo serial,
-    seguindo int, /*chave estrangeira, esse Ã© o usuario que esta sendo seguido (semelhante ao TWITTER e INSTAGRAM)*/
-    seguidor int, /*chave estrangeira, esse Ã© o usuario que irÃ¡ seguir o usuario de cima*/
+    codigo serial,
+    seguindo int, /*chave estrangeira, esse é o usuario que esta sendo seguido (semelhante ao TWITTER e INSTAGRAM)*/
+    seguidor int, /*chave estrangeira, esse é o usuario que irá¡ seguir o usuario de cima*/
     data_hora datetime,
     primary key(codigo)
 );
 
 create table ATIVIDADE(
-	cod_atividade serial,
+    cod_atividade serial,
     data_hora datetime,
     tipo varchar(30),
     nome varchar(50),
     descricao varchar(240),
-    localizacao varchar(240),/*GeolocalizaÃ§Ã£o*/
+    localizacao varchar(240),/*Geolocalização*/
     cod_usuario int, /*chave estrangeira*/
     primary key(cod_atividade)
 );
 
 create table TRABALHO(
-	cod_trabalho serial,
+    cod_trabalho serial,
     conteudo varchar(240), /*coteudo da postagem (foto, video, texto, etc)*/
     data_hora datetime,
     tipo varchar(30),
@@ -172,7 +172,7 @@ create table TRABALHO(
 );
 
 create table CURSO(
-	cod_curso serial,
+    cod_curso serial,
     numero_modulos int,
     descricao varchar(240),
     carga_horaria int,
