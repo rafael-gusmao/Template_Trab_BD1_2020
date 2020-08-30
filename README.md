@@ -30,7 +30,7 @@ O sistema proposto ATVGen conterá as informações aqui detalhadas. Dos usuári
 #### 4.2 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
     
 > O sistema ATVGen precisa inicialmente dos seguintes relatórios:
-* RRelatório das atividades diárias do usuário (exercícios fisicos, passeios, etc...) revelando a descrição, a localização e a data e hora em que as atividades ocorreram.
+* Relatório das atividades diárias do usuário (exercícios fisicos, passeios, etc...) revelando a descrição, a localização e a data e hora em que as atividades ocorreram.
 * Relatório dos trabalhos produzidos pelo usuário (artes, textos, desenhos, musicas, códigos de programação, etc...), contendo uma descrição do trabalho, o conteúdo em si e a data da postagem.
 * Relatório dos cursos que o usuário já fez ou está fazendo, o nome do curso, a quantidade de períodos/módulos que ele já cumpriu desse curso e a descrição.
 * Relatório que mostre o número de seguidores que esse usuário possui e quem são, revelando seus nomes e foto de perfil.
@@ -48,8 +48,11 @@ O sistema proposto ATVGen conterá as informações aqui detalhadas. Dos usuári
         
     
 #### 5.1 Validação do Modelo Conceitual
-    [Grupo01]: [Nomes dos que participaram na avaliação]
-    [Grupo02]: [Nomes dos que participaram na avaliação]
+    Auxilio Juridico: Lucas Neves de Oliveira e  Marlon Santos Macedo
+    Segundo a avaliação deles não notaram em nenhum erro em nosso modelo conceitual.
+     
+    Provisões de Emergência: Kelvin Lehrback Guilherme
+    Segundo a avaliação dele não notou nada de errado, apenas se incomodou com as entidades atividade e usuario que atividade esta vindo da esqueda para a direita, mas expliquei     que ela esta assim por limitações do brmodelo para ajeitar as conexões, e esta de cima para baixo como recomendado pelo professor, ele teve duvida com o auto relacionamento     do usuario tambem e expliquei que funciona como o twitter.
 
 #### 5.2 Descrição dos dados 
     USUARIO: Tabela que armazena as informações relativas ao usuário do sistema.
