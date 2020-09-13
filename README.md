@@ -350,13 +350,21 @@ insert into CURSO values
     select * from  trabalho where tag = 'Arte';
 
 #### 9.3	CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)
-    '''
+   ```
     SELECT * FROM "atividade" where cod_usuario > 1 and tipo = 'Física'
 	SELECT * FROM "atividade" where cod_usuario >= 2 or tipo = 'Física'
 	SELECT * FROM "endereco" where not estado = 'ES'
 	SELECT * FROM "curso" where carga_horaria > 0 and cod_usuario = 1
 	SELECT * FROM "trabalho" where tag = 'Literatura' or tag = 'Texto'
-    '''
+	
+	SELECT carga_horaria*10 FROM "curso" 
+	SELECT cod_trabalho+1 FROM "trabalho"
+	SELECT numero-1 FROM "endereco"
+	
+	SELECT * FROM "atividade" as ATV
+	SELECT * FROM "atividade" as ATV_Fisicas where tipo='Física'
+	SELECT * FROM "profissao" as Professores where nome = 'Professor' 
+  ```
 
 #### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
     
@@ -400,7 +408,10 @@ OBS: não foi possivel usar o current_time pois os formatos de nenhuma data arma
     a) Criar minimo 2 envolvendo algum tipo de junção
 
 #### 9.8	CONSULTAS COM LEFT, RIGHT E FULL JOIN (Mínimo 4)<br>
-    a) Criar minimo 1 de cada tipo
+    SELECT * FROM "usuario" full join "seguir" on cod_usuario = codigo
+	SELECT * FROM curso left outer join atividade on cod_curso = cod_atividade
+	SELECT * FROM "endereco" right outer join usuario on codigo = cod_usuario
+	SELECT * FROM "endereco" full outer join curso on cod_curso = codigo
 
 #### 9.9	CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
 
@@ -468,8 +479,10 @@ VIEW
     
 
 #### 9.10	SUBCONSULTAS (Mínimo 4)<br>
-     a) Criar minimo 1 envolvendo GROUP BY
-     b) Criar minimo 1 envolvendo algum tipo de junção
+    SELECT nome, count(*) FROM "usuario" Group by nome
+	SELECT tag,count(*) FROM "trabalho" group by tag
+	SELECT seguindo,count(*) FROM "seguir" where seguindo in (3) group by seguindo
+	SELECT * from usuario inner join profissao on cod_usuario = codigo
 
 ># Marco de Entrega 02: Do item 9.2 até o ítem 9.10<br>
 
