@@ -344,6 +344,11 @@ insert into CURSO values
 ># Marco de Entrega 01: Do item 1 até o item 9.1<br>
 
 #### 9.2	CONSULTAS DAS TABELAS COM FILTROS WHERE (Mínimo 4)<br>
+    select * from atividade where localizacao = 'Serra';
+    select nome, telefone, data_nascimento from usuario where sexo = 'F';
+    select nome, descricao, carga_horaria, numero_modulos from curso where carga_horaria >= 30;
+    select * from  trabalho where tag = 'Arte';
+
 #### 9.3	CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)
     a) Criar 5 consultas que envolvam os operadores lógicos AND, OR e Not
     b) Criar no mínimo 3 consultas com operadores aritméticos 
