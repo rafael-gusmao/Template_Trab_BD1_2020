@@ -356,7 +356,7 @@ insert into CURSO values
 
 #### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
     
-    #####Operadores de Like
+    ##### Operadores de Like
     
     select nome, telefone, data_nascimento from usuario where nome ilike 'm%';
     select nome, telefone, data_nascimento from usuario where telefone like '%4';
@@ -364,7 +364,7 @@ insert into CURSO values
     select nome, conteudo, tag, descricao from trabalho where descricao like '%p_';
     select * from atividade where localizacao not like '_i%';
     
-    #####Operadores de DATAS
+    ##### Operadores de DATAS
     
     select nome, email, data_nascimento, date_part('year', (age(current_date, data_nascimento))) as idade from usuario;
     select nome, current_date - (data_hora) as tempo_de_publicação from trabalho;
@@ -399,7 +399,7 @@ OBS: não foi possivel usar o current_time pois os formatos de nenhuma data arma
     a) Criar minimo 1 de cada tipo
 
 #### 9.9	CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
-    #####SELF VIEW
+    ##### SELF VIEW
      
 OBS: Em nenhum momento em nossa tabela a um relacionamento de uma tabela com ela mesma sem ter um entermediario, 
 o mais proximo que temos de um self join é o Usuario Seguir Usuario, 
@@ -417,7 +417,7 @@ Esse select irá retornar quantos seguidores os usuario tem
 	inner join seguir on seguir.seguindo = usuario.cod_usuario 
 	inner join usuario u on u.cod_usuario = seguir.seguidor group by usuario.nome;
 		
-    #####VIEW
+    ##### VIEW
     
     create view Dados_Pessoais as
 	select usuario.nome as nome_usuario, usuario.email, usuario.telefone, 
