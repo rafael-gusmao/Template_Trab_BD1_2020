@@ -382,13 +382,13 @@ OBS: não foi possivel usar o current_time pois os formatos de nenhuma data arma
 
 #### 9.6	CONSULTAS COM INNER JOIN E ORDER BY (Mínimo 6)<br>
     select * from usuario 
-	      inner join endereco on endereco.codigo = usuario.endereco 
-	      inner join profissao on profissao.codigo = usuario.profissao 
-	      inner join seguir on usuario.cod_usuario = seguir.seguindo 
-	      inner join usuario u on u.cod_usuario = seguir.seguidor 
-	      inner join atividade on atividade.cod_usuario = usuario.cod_usuario
-	      inner join curso on curso.cod_usuario = usuario.cod_usuario
-      	inner join trabalho on trabalho.cod_usuario = usuario.cod_usuario;
+	 inner join endereco on endereco.codigo = usuario.endereco 
+	 inner join profissao on profissao.codigo = usuario.profissao 
+	 inner join seguir on usuario.cod_usuario = seguir.seguindo 
+	 inner join usuario u on u.cod_usuario = seguir.seguidor 
+	 inner join atividade on atividade.cod_usuario = usuario.cod_usuario
+	 inner join curso on curso.cod_usuario = usuario.cod_usuario
+      	 inner join trabalho on trabalho.cod_usuario = usuario.cod_usuario;
 
     b) Outras junções que o grupo considere como sendo as de principal importância para o trabalho
 
@@ -399,8 +399,68 @@ OBS: não foi possivel usar o current_time pois os formatos de nenhuma data arma
     a) Criar minimo 1 de cada tipo
 
 #### 9.9	CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
-        a) Uma junção que envolva Self Join (caso não ocorra na base justificar e substituir por uma view)
-        b) Outras junções com views que o grupo considere como sendo de relevante importância para o trabalho
+    #####SELF VIEW
+     
+OBS: Em nenhum momento em nossa tabela a um relacionamento de uma tabela com ela mesma sem ter um entermediario, 
+o mais proximo que temos de um self join é o Usuario Seguir Usuario, 
+a tabela seguir no modelo conceitual é uma relaação, caso possa tratar como self join ficaria da seguinte forma
+
+Esse select irá retornar quem são os seguidores de cada usuario
+
+    select usuario.nome, u.nome from usuario 
+	inner join seguir on seguir.seguindo = usuario.cod_usuario 
+	inner join usuario u on u.cod_usuario = seguir.seguidor;
+
+Esse select irá retornar quantos seguidores os usuario tem
+
+    select usuario.nome, count(u.nome) from usuario 
+	inner join seguir on seguir.seguindo = usuario.cod_usuario 
+	inner join usuario u on u.cod_usuario = seguir.seguidor group by usuario.nome;
+		
+    #####VIEW
+    
+    create view Dados_Pessoais as
+	select usuario.nome as nome_usuario, usuario.email, usuario.telefone, 
+		usuario.sexo, usuario.data_nascimento, endereco.cep, endereco.estado,
+		endereco.cidade, endereco.bairro, endereco.numero, profissao.nome as profissao, profissao.empresa, profissao.descricao from usuario 
+		inner join endereco on endereco.codigo = usuario.endereco 
+		inner join profissao on profissao.codigo = usuario.profissao;
+		
+    create view Quem_Estou_Seguindo as
+	select usuario.nome as usuario, u.nome as seguindo from usuario 
+		inner join seguir on seguir.seguidor = usuario.cod_usuario 
+		inner join usuario u on u.cod_usuario = seguir.seguindo order by usuario.nome;
+		
+    create view Quem_Esta_Me_Seguindo as
+	select usuario.nome as usuario, u.nome as seguidor from usuario 
+		inner join seguir on seguir.seguindo = usuario.cod_usuario 
+		inner join usuario u on u.cod_usuario = seguir.seguidor order by usuario.nome;
+		
+    create view Trabalhos_do_Usuario as
+	select usuario.nome as autor, usuario.email, trabalho.nome as obra, 
+		trabalho.descricao, trabalho.tag, trabalho.conteudo from usuario
+		inner join trabalho on trabalho.cod_usuario = usuario.cod_usuario;
+		
+    create view Atividades_do_Usuario as
+	select usuario.nome as autor, usuario.email, atividade.nome as atividade, 
+		atividade.descricao, atividade.tipo, atividade.localizacao from usuario
+		inner join atividade on atividade.cod_usuario = usuario.cod_usuario;
+		
+    create view Cursos_do_Usuario as
+	select usuario.nome as aluno, usuario.email, curso.nome as curso, 
+		curso.descricao, curso.carga_horaria , curso.numero_modulos from usuario
+		inner join curso on curso.cod_usuario = usuario.cod_usuario;
+		
+    create view Quantidade_de_trabalhos_por_mes as
+	select usuario.nome, count(trabalho.nome) as quantidade, extract(month from trabalho.data_hora) as mes, extract(year from trabalho.data_hora) as ano from usuario 
+		inner join trabalho on trabalho.cod_usuario = usuario.cod_usuario
+		group by usuario.nome, extract(month from trabalho.data_hora), extract(year from trabalho.data_hora);
+		
+    create view Quantidade_de_atividades_por_mes as	
+	select usuario.nome, count(atividade.nome) as quantidade, extract(month from atividade.data_hora) as mes, extract(year from atividade.data_hora) as ano from usuario 
+		inner join atividade on atividade.cod_usuario = usuario.cod_usuario
+		group by usuario.nome, extract(month from atividade.data_hora), extract(year from atividade.data_hora);
+    
 
 #### 9.10	SUBCONSULTAS (Mínimo 4)<br>
      a) Criar minimo 1 envolvendo GROUP BY
