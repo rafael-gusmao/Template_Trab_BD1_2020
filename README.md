@@ -381,7 +381,15 @@ OBS: não foi possivel usar o current_time pois os formatos de nenhuma data arma
     b) Criar minimo 3 de atualização
 
 #### 9.6	CONSULTAS COM INNER JOIN E ORDER BY (Mínimo 6)<br>
-    a) Uma junção que envolva todas as tabelas possuindo no mínimo 2 registros no resultado
+    select * from usuario 
+	      inner join endereco on endereco.codigo = usuario.endereco 
+	      inner join profissao on profissao.codigo = usuario.profissao 
+	      inner join seguir on usuario.cod_usuario = seguir.seguindo 
+	      inner join usuario u on u.cod_usuario = seguir.seguidor 
+	      inner join atividade on atividade.cod_usuario = usuario.cod_usuario
+	      inner join curso on curso.cod_usuario = usuario.cod_usuario
+      	inner join trabalho on trabalho.cod_usuario = usuario.cod_usuario;
+
     b) Outras junções que o grupo considere como sendo as de principal importância para o trabalho
 
 #### 9.7	CONSULTAS COM GROUP BY E FUNÇÕES DE AGRUPAMENTO (Mínimo 6)<br>
