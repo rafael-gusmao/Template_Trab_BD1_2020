@@ -402,9 +402,9 @@ OBS: não foi possivel usar o current_time pois os formatos de nenhuma data arma
 
 SELF VIEW
      
-OBS: Em nenhum momento em nossa tabela a um relacionamento de uma tabela com ela mesma sem ter um entermediario, 
-o mais proximo que temos de um self join é o Usuario Seguir Usuario, 
-a tabela seguir no modelo conceitual é uma relaação, caso possa tratar como self join ficaria da seguinte forma
+OBS: Em nenhum momento em nossa tabela há um relacionamento de uma tabela com ela mesma sem ter um intermediário, 
+o mais proximo que temos de um self join é o Usuario - Seguir - Usuario, 
+a tabela seguir no modelo conceitual é uma relação, caso possa ser tratada como self join ficaria da seguinte forma
 
 Esse select irá retornar quem são os seguidores de cada usuario
 
