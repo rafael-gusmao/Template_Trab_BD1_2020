@@ -17,6 +17,7 @@ O sistema ATVGen tem como objetivo solucionar problemas de ociosidade que muitas
 
 O objetivo do sistema ATVGen é criar uma comunidade/rede social, na qual pessoas possam encontrar atividades para praticar em seu tempo livre, a partir de outras pessoas que têm gostos semelhantes. O sistema pretende armazenar um grande número de atividades dos mais diversos tipos, desde cursos online até trabalhos artísticos, sendo capaz de recomendar a cada usuário atividades que possam ser do seu interesse. Cada usuário terá a possibilidade de sugerir novas atividades, registrar suas atividades e seguir outros usuários que sejam do seu interesse.<br>
 
+
 ### 3.MINI-MUNDO<br>
 
 O sistema proposto ATVGen conterá as informações aqui detalhadas. Dos usuários, serão armazenados um código identificador, nome, e-mail, telefone, data de nascimento, sexo e senha, além de sua profissão e endereço. Do endereço, são armazenados rua, número, bairro, cidade, estado e CEP. Da profissão, são armazenados código, descrição, nome e nome da empresa. Um usuário pode cadastrar um número indeterminado de cursos, atividades, e trabalhos. Para os cursos, são armazenados código, nome, descrição, carga horária e número de módulos. Para as atividades, armazena-se código, nome, descrição, localização, tipo e data/hora. Com relação aos trabalhos, são armazenados código, nome, descrição, conteúdo, tags e data/hora. Cada trabalho, atividade ou curso deve estar associado a um usuário. Além disso, usuários são capazes de seguir outros usuários, para acompanhar o que eles publicam. Para a funcionalidade seguir, é necessário armazenar o usuário seguindo, o usuário sendo seguido e a data/hora da interação.<br>
@@ -42,6 +43,7 @@ O sistema proposto ATVGen conterá as informações aqui detalhadas. Dos usuári
 ![Simulação de todos os dados armazenados](https://github.com/rafael-gusmao/Template_Trab_BD1_2020/blob/master/arquivos/TabelaSistemaATVGen_sample.xlsx?raw=true "Tabela - Sistema ATVGen")
     
     
+
 ### 5.MODELO CONCEITUAL<br>
         
 ![Alt text](https://github.com/rafael-gusmao/Template_Trab_BD1_2020/blob/master/images/Conceitual.png "Modelo Conceitual")    
@@ -339,7 +341,7 @@ insert into CURSO values
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
     OBS: Incluir para cada tópico as instruções SQL + imagens (print da tela) mostrando os resultados.<br>
 #### 9.1	CONSULTAS DAS TABELAS COM TODOS OS DADOS INSERIDOS (Todas) <br>
-![Link para o Collab do trabalho, contendo os códigos para exibição das tabelas](https://colab.research.google.com/drive/1goUWH7PVolxr9Br2OW3BNfOHtCw9Irgy "Collab")
+![Link para o Colab com todos os dados inseridos](https://colab.research.google.com/drive/1goUWH7PVolxr9Br2OW3BNfOHtCw9Irgy?usp=sharing "Colab")
 
 ># Marco de Entrega 01: Do item 1 até o item 9.1<br>
 
@@ -351,15 +353,15 @@ insert into CURSO values
 
 #### 9.3	CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)
    ```
-    SELECT * FROM "atividade" where cod_usuario > 1 and tipo = 'Física'
+	SELECT * FROM "atividade" where cod_usuario > 1 and tipo = 'Física'
 	SELECT * FROM "atividade" where cod_usuario >= 2 or tipo = 'Física'
 	SELECT * FROM "endereco" where not estado = 'ES'
 	SELECT * FROM "curso" where carga_horaria > 0 and cod_usuario = 1
 	SELECT * FROM "trabalho" where tag = 'Literatura' or tag = 'Texto'
 	
-	SELECT carga_horaria*10 FROM "curso" 
-	SELECT cod_trabalho+1 FROM "trabalho"
-	SELECT numero-1 FROM "endereco"
+	SELECT carga_horaria*5 as carga_horaria_semanal FROM curso 
+	SELECT cod_trabalho+1 as cod_trabalho FROM trabalho
+	SELECT numero-1 as numero FROM endereco
 	
 	SELECT * FROM "atividade" as ATV
 	SELECT * FROM "atividade" as ATV_Fisicas where tipo='Física'
@@ -389,26 +391,38 @@ Operadores de DATAS
 OBS: não foi possivel usar o current_time pois os formatos de nenhuma data armazenada no banco tem compatibilidade 
 
 #### 9.5	INSTRUÇÕES APLICANDO ATUALIZAÇÃO E EXCLUSÃO DE DADOS (Mínimo 6)<br>
-    a) Criar minimo 3 de exclusão
-    b) Criar minimo 3 de atualização
+
+	start transaction;
+
+	update profissao set nome = 'Chef' where nome = 'Cozinheiro';
+	update endereco set numero = 374 where bairro = 'Alto da Serra';
+	update atividade set tipo = 'Aeróbica' where cod_atividade = 1;
+
+	delete from profissao where codigo > 6;
+	delete from endereco where estado = 'RS';
+	delete from atividade where cod_usuario = 4;
+
+	commit;
+
 
 #### 9.6	CONSULTAS COM INNER JOIN E ORDER BY (Mínimo 6)<br>
-    select * from usuario 
-	 inner join endereco on endereco.codigo = usuario.endereco 
-	 inner join profissao on profissao.codigo = usuario.profissao 
-	 inner join seguir on usuario.cod_usuario = seguir.seguindo 
-	 inner join usuario u on u.cod_usuario = seguir.seguidor 
-	 inner join atividade on atividade.cod_usuario = usuario.cod_usuario
-	 inner join curso on curso.cod_usuario = usuario.cod_usuario
-      	 inner join trabalho on trabalho.cod_usuario = usuario.cod_usuario;
 
-    b) Outras junções que o grupo considere como sendo as de principal importância para o trabalho
+	select * from usuario 
+	inner join endereco on endereco.codigo = usuario.endereco 
+	inner join profissao on profissao.codigo = usuario.profissao 
+	inner join seguir on usuario.cod_usuario = seguir.seguindo 
+	inner join usuario u on u.cod_usuario = seguir.seguidor 
+	inner join atividade on atividade.cod_usuario = usuario.cod_usuario
+	inner join curso on curso.cod_usuario = usuario.cod_usuario
+      	inner join trabalho on trabalho.cod_usuario = usuario.cod_usuario;
 
 #### 9.7	CONSULTAS COM GROUP BY E FUNÇÕES DE AGRUPAMENTO (Mínimo 6)<br>
-    a) Criar minimo 2 envolvendo algum tipo de junção
+
+	select e.estado, count(e.estado) as qtd_usuarios from endereco e group by e.estado order by qtd_usuarios desc
+	select tipo, count(tipo) from atividade group by tipo order by count(tipo) desc
 
 #### 9.8	CONSULTAS COM LEFT, RIGHT E FULL JOIN (Mínimo 4)<br>
-    SELECT * FROM "usuario" full join "seguir" on cod_usuario = codigo
+   	SELECT * FROM "usuario" full join "seguir" on cod_usuario = codigo
 	SELECT * FROM curso left outer join atividade on cod_curso = cod_atividade
 	SELECT * FROM "endereco" right outer join usuario on codigo = cod_usuario
 	SELECT * FROM "endereco" full outer join curso on cod_curso = codigo
@@ -423,13 +437,13 @@ a tabela seguir no modelo conceitual é uma relação, caso possa ser tratada co
 
 Esse select irá retornar quem são os seguidores de cada usuario
 
-    select usuario.nome, u.nome from usuario 
+   	select usuario.nome, u.nome from usuario 
 	inner join seguir on seguir.seguindo = usuario.cod_usuario 
 	inner join usuario u on u.cod_usuario = seguir.seguidor;
 
 Esse select irá retornar quantos seguidores os usuario tem
 
-    select usuario.nome, count(u.nome) from usuario 
+   	select usuario.nome, count(u.nome) from usuario 
 	inner join seguir on seguir.seguindo = usuario.cod_usuario 
 	inner join usuario u on u.cod_usuario = seguir.seguidor group by usuario.nome;
 		
