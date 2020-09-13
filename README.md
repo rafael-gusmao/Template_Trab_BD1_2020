@@ -350,9 +350,13 @@ insert into CURSO values
     select * from  trabalho where tag = 'Arte';
 
 #### 9.3	CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)
-    a) Criar 5 consultas que envolvam os operadores lógicos AND, OR e Not
-    b) Criar no mínimo 3 consultas com operadores aritméticos 
-    c) Criar no mínimo 3 consultas com operação de renomear nomes de campos ou tabelas
+    '''
+    SELECT * FROM "atividade" where cod_usuario > 1 and tipo = 'Física'
+	SELECT * FROM "atividade" where cod_usuario >= 2 or tipo = 'Física'
+	SELECT * FROM "endereco" where not estado = 'ES'
+	SELECT * FROM "curso" where carga_horaria > 0 and cod_usuario = 1
+	SELECT * FROM "trabalho" where tag = 'Literatura' or tag = 'Texto'
+    '''
 
 #### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
     
