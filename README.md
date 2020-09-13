@@ -415,7 +415,7 @@ OBS: não foi possivel usar o current_time pois os formatos de nenhuma data arma
 
 #### 9.9	CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
 
-SELF VIEW
+SELF JOIN
      
 OBS: Em nenhum momento em nossa tabela há um relacionamento de uma tabela com ela mesma sem ter um intermediário, 
 o mais proximo que temos de um self join é o Usuario - Seguir - Usuario, 
