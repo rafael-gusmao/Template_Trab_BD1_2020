@@ -355,8 +355,26 @@ insert into CURSO values
     c) Criar no mínimo 3 consultas com operação de renomear nomes de campos ou tabelas
 
 #### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
-    a) Criar outras 5 consultas que envolvam like ou ilike
-    b) Criar uma consulta para cada tipo de função data apresentada.
+    
+    #####Operadores de Like
+    
+    select nome, telefone, data_nascimento from usuario where nome ilike 'm%';
+    select nome, telefone, data_nascimento from usuario where telefone like '%4';
+    select nome, descricao, carga_horaria, numero_modulos from curso where nome not like '%exercitar%';
+    select nome, conteudo, tag, descricao from trabalho where descricao like '%p_';
+    select * from atividade where localizacao not like '_i%';
+    
+    #####Operadores de DATAS
+    
+    select nome, email, data_nascimento, date_part('year', (age(current_date, data_nascimento))) as idade from usuario;
+    select nome, current_date - (data_hora) as tempo_de_publicação from trabalho;
+    select nome, current_date - (data_hora) as tempo_de_publicação from atividade;
+    select nome, extract('month' from data_hora) as mes_de_publicacao from atividade;
+    select nome, date_part('month', data_nascimento) as mes_de_aniversario from usuario;
+    select now(), data_hora as data_da_publicação from atividade;
+    select nome, conteudo, data_hora, tag, descricao from trabalho t2 where conteudo ilike 'm%';
+
+OBS: não foi possivel usar o current_time pois os formatos de nenhuma data armazenada no banco tem compatibilidade 
 
 #### 9.5	INSTRUÇÕES APLICANDO ATUALIZAÇÃO E EXCLUSÃO DE DADOS (Mínimo 6)<br>
     a) Criar minimo 3 de exclusão
