@@ -146,7 +146,7 @@ create table USUARIO (
 create table SEGUIR (
     codigo serial,
     seguindo int, /*chave estrangeira, esse é o usuario que esta sendo seguido (semelhante ao TWITTER e INSTAGRAM)*/
-    seguidor int, /*chave estrangeira, esse é o usuario que irá¡ seguir o usuario de cima*/
+    seguidor int, /*chave estrangeira, esse é o usuario que irá seguir o usuario de cima*/
     data_hora datetime,
     primary key(codigo)
 );
@@ -164,7 +164,7 @@ create table ATIVIDADE(
 
 create table TRABALHO(
     cod_trabalho serial,
-    conteudo varchar(240), /*coteudo da postagem (foto, video, texto, etc)*/
+    conteudo varchar(240), /*conteúdo da postagem (foto, video, texto, etc)*/
     data_hora datetime,
     tipo varchar(30),
     nome varchar(50),
@@ -231,8 +231,8 @@ create table USUARIO (
 
 create table SEGUIR (
     codigo serial,
-    seguindo int, /*chave estrangeira, esse é o usuario que esta sendo seguido (semelhante ao TWITTER e INSTAGRAM)*/
-    seguidor int, /*chave estrangeira, esse é o usuario que irá seguir o usuario de cima*/
+    seguindo int, /* Chave estrangeira, esse é o usuário que está sendo seguido (semelhante ao TWITTER e INSTAGRAM) */
+    seguidor int, /* Chave estrangeira, esse é o usuário que irá seguir o usuário de cima */
     data_hora timestamp,
     primary key(codigo)
 );
@@ -243,19 +243,19 @@ create table ATIVIDADE(
     tipo varchar(30),
     nome varchar(50),
     descricao varchar(240),
-    localizacao varchar(240),/*Geolocalização*/
-    cod_usuario int, /*chave estrangeira*/
+    localizacao varchar(240),/* Geolocalização */
+    cod_usuario int, /* Chave estrangeira */
     primary key(cod_atividade)
 );
 
 create table TRABALHO(
     cod_trabalho serial,
-    conteudo varchar(240), /*coteudo da postagem (foto, video, texto, etc)*/
+    conteudo varchar(240), /* Conteúdo da postagem (foto, video, texto, etc) */
     data_hora timestamp,
     tag varchar(30),
     nome varchar(50),
     descricao varchar(240),
-    cod_usuario int, /*chave estrangeira*/
+    cod_usuario int, /* Chave estrangeira */
     primary key(cod_trabalho)
 );
 
@@ -265,7 +265,7 @@ create table CURSO(
     descricao varchar(240),
     carga_horaria int,
     nome varchar(50),
-    cod_usuario int, /*chave estrangeira*/
+    cod_usuario int, /* chave estrangeira */
     primary key(cod_curso)
 );
 
