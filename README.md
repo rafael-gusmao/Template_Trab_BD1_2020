@@ -346,110 +346,63 @@ insert into CURSO values
 ># Marco de Entrega 01: Do item 1 até o item 9.1<br>
 
 #### 9.2	CONSULTAS DAS TABELAS COM FILTROS WHERE (Mínimo 4)<br>
-	select * from atividade where localizacao = 'Serra';
-	select nome, telefone, data_nascimento from usuario where sexo = 'F';
-	select nome, descricao, carga_horaria, numero_modulos from curso where carga_horaria >= 30;
-	select * from  trabalho where tag = 'Arte';
+    select * from atividade where localizacao = 'Serra';
+    select nome, telefone, data_nascimento from usuario where sexo = 'F';
+    select nome, descricao, carga_horaria, numero_modulos from curso where carga_horaria >= 30;
+    select * from  trabalho where tag = 'Arte';
 
 #### 9.3	CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)
-   
+   ```
 	SELECT * FROM "atividade" where cod_usuario > 1 and tipo = 'Física'
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos1.png "OP_Logicos1")
-
 	SELECT * FROM "atividade" where cod_usuario >= 2 or tipo = 'Física'
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos3.png "OP_Logicos3")
-
 	SELECT * FROM "endereco" where not estado = 'ES'
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos2.png "OP_Logicos2")
-
 	SELECT * FROM "curso" where carga_horaria > 0 and cod_usuario = 1
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos4.png "OP_Logicos4")
-
 	SELECT * FROM "trabalho" where tag = 'Literatura' or tag = 'Texto'
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos5.png "OP_Logicos5")
 	
-	SELECT carga_horaria*5 as carga_horaria_semanal FROM curso
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos6.png "OP_Logicos6")
-
+	SELECT carga_horaria*5 as carga_horaria_semanal FROM curso 
 	SELECT cod_trabalho+1 as cod_trabalho FROM trabalho
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos7.png "OP_Logicos7")
-
 	SELECT numero-1 as numero FROM endereco
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos8.png "OP_Logicos8")
 	
 	SELECT * FROM "atividade" as ATV
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos9.png "OP_Logicos9")
-
 	SELECT * FROM "atividade" as ATV_Fisicas where tipo='Física'
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos10.png "OP_Logicos10")
-
 	SELECT * FROM "profissao" as Professores where nome = 'Professor' 
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos11.png "OP_Logicos11")
-
+  ```
 
 #### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
     
 Operadores de Like
     
-	select nome, telefone, data_nascimento from usuario where nome ilike 'm%';
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData1.png "LikeEData1")
-
-	select nome, telefone, data_nascimento from usuario where telefone like '%4';
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData2.png "LikeEData2")
-
-	select nome, descricao, carga_horaria, numero_modulos from curso where nome not like '%exercitar%';
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData3.png "LikeEData3")
-    
-	select nome, conteudo, tag, descricao from trabalho where descricao like '%p_';
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData4.png "LikeEData4")
-    
-	select * from atividade where localizacao not like '_i%';
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData5.png "LikeEData5")
+    select nome, telefone, data_nascimento from usuario where nome ilike 'm%';
+    select nome, telefone, data_nascimento from usuario where telefone like '%4';
+    select nome, descricao, carga_horaria, numero_modulos from curso where nome not like '%exercitar%';
+    select nome, conteudo, tag, descricao from trabalho where descricao like '%p_';
+    select * from atividade where localizacao not like '_i%';
     
 Operadores de DATAS
     
-	select nome, email, data_nascimento, date_part('year', (age(current_date, data_nascimento))) as idade from usuario;
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData6.png "LikeEData6")
-
-	select nome, current_date - (data_hora) as tempo_de_publicação from trabalho;
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData7.png "LikeEData7")
-    
-	select nome, current_date - (data_hora) as tempo_de_publicação from atividade;
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData8.png "LikeEData8")
-
-	select nome, extract('month' from data_hora) as mes_de_publicacao from atividade;
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData9.png "LikeEData9")
-   
-	select nome, date_part('month', data_nascimento) as mes_de_aniversario from usuario;
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData10.png "LikeEData10")
-    
-	select now(), data_hora as data_da_publicação from atividade;
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData11.png "LikeEData11")
-    
-	select nome, conteudo, data_hora, tag, descricao from trabalho t2 where conteudo ilike 'm%';
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData12.png "LikeEData12")
+    select nome, email, data_nascimento, date_part('year', (age(current_date, data_nascimento))) as idade from usuario;
+    select nome, current_date - (data_hora) as tempo_de_publicação from trabalho;
+    select nome, current_date - (data_hora) as tempo_de_publicação from atividade;
+    select nome, extract('month' from data_hora) as mes_de_publicacao from atividade;
+    select nome, date_part('month', data_nascimento) as mes_de_aniversario from usuario;
+    select now(), data_hora as data_da_publicação from atividade;
+    select nome, conteudo, data_hora, tag, descricao from trabalho t2 where conteudo ilike 'm%';
 
 OBS: não foi possivel usar o current_time pois os formatos de nenhuma data armazenada no banco tem compatibilidade 
 
 #### 9.5	INSTRUÇÕES APLICANDO ATUALIZAÇÃO E EXCLUSÃO DE DADOS (Mínimo 6)<br>
 
+	start transaction;
+
 	update profissao set nome = 'Chef' where nome = 'Cozinheiro';
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_5/Update1.png "Update1")
-	
 	update endereco set numero = 374 where bairro = 'Alto da Serra';
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_5/Update2.png "Update2")
-	
 	update atividade set tipo = 'Aeróbica' where cod_atividade = 1;
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_5/Update3.png "Update3")
 
 	delete from profissao where codigo > 6;
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_5/Delete1.png "Delete1")
-	
 	delete from endereco where estado = 'RS';
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_5/Delete2.png "Delete2")
-	
 	delete from atividade where cod_usuario = 4;
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_5/Delete3.png "Delete3")
+
+	commit;
 
 
 #### 9.6	CONSULTAS COM INNER JOIN E ORDER BY (Mínimo 6)<br>
@@ -469,11 +422,10 @@ OBS: não foi possivel usar o current_time pois os formatos de nenhuma data arma
 	select tipo, count(tipo) from atividade group by tipo order by count(tipo) desc
 
 #### 9.8	CONSULTAS COM LEFT, RIGHT E FULL JOIN (Mínimo 4)<br>
-	SELECT * FROM "usuario" full join "seguir" on cod_usuario = codigo
-	SELECT * FROM curso left outer join atividade on cod_curso = cod_atividade
-	SELECT * FROM "endereco" right outer join usuario on codigo = cod_usuario
-	SELECT * FROM "endereco" full outer join curso on cod_curso = codigo
-
+   	SELECT * FROM usuario a full join atividade b on a.cod_usuario = b.cod_usuario
+	SELECT * FROM usuario a left outer join curso b on a.cod_usuario = b.cod_usuario
+	SELECT * FROM endereco right outer join usuario on codigo = cod_usuario
+	SELECT * FROM usuario a full outer join trabalho b on a.cod_usuario = b.cod_usuario
 #### 9.9	CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
 
 SELF JOIN
@@ -483,64 +435,64 @@ o mais proximo que temos de um self join é o Usuario - Seguir - Usuario,
 a tabela seguir no modelo conceitual é uma relação, caso possa ser tratada como self join ficaria da seguinte forma
 
 Esse select irá retornar quem são os seguidores de cada usuario
-	
-	select usuario.nome, u.nome from usuario 
+
+   	select usuario.nome, u.nome from usuario 
 	inner join seguir on seguir.seguindo = usuario.cod_usuario 
 	inner join usuario u on u.cod_usuario = seguir.seguidor;
 
 Esse select irá retornar quantos seguidores os usuario tem
 
-	select usuario.nome, count(u.nome) from usuario 
+   	select usuario.nome, count(u.nome) from usuario 
 	inner join seguir on seguir.seguindo = usuario.cod_usuario 
 	inner join usuario u on u.cod_usuario = seguir.seguidor group by usuario.nome;
 		
 VIEW
     
-	create view Dados_Pessoais as
-		select usuario.nome as nome_usuario, usuario.email, usuario.telefone, 
-			usuario.sexo, usuario.data_nascimento, endereco.cep, endereco.estado,
-			endereco.cidade, endereco.bairro, endereco.numero, profissao.nome as profissao, profissao.empresa, profissao.descricao from usuario 
-			inner join endereco on endereco.codigo = usuario.endereco 
-			inner join profissao on profissao.codigo = usuario.profissao;
+    create view Dados_Pessoais as
+	select usuario.nome as nome_usuario, usuario.email, usuario.telefone, 
+		usuario.sexo, usuario.data_nascimento, endereco.cep, endereco.estado,
+		endereco.cidade, endereco.bairro, endereco.numero, profissao.nome as profissao, profissao.empresa, profissao.descricao from usuario 
+		inner join endereco on endereco.codigo = usuario.endereco 
+		inner join profissao on profissao.codigo = usuario.profissao;
 		
-	create view Quem_Estou_Seguindo as
-		select usuario.nome as usuario, u.nome as seguindo from usuario 
-			inner join seguir on seguir.seguidor = usuario.cod_usuario 
-			inner join usuario u on u.cod_usuario = seguir.seguindo order by usuario.nome;
+    create view Quem_Estou_Seguindo as
+	select usuario.nome as usuario, u.nome as seguindo from usuario 
+		inner join seguir on seguir.seguidor = usuario.cod_usuario 
+		inner join usuario u on u.cod_usuario = seguir.seguindo order by usuario.nome;
 		
-	create view Quem_Esta_Me_Seguindo as
-		select usuario.nome as usuario, u.nome as seguidor from usuario 
-			inner join seguir on seguir.seguindo = usuario.cod_usuario 
-			inner join usuario u on u.cod_usuario = seguir.seguidor order by usuario.nome;
+    create view Quem_Esta_Me_Seguindo as
+	select usuario.nome as usuario, u.nome as seguidor from usuario 
+		inner join seguir on seguir.seguindo = usuario.cod_usuario 
+		inner join usuario u on u.cod_usuario = seguir.seguidor order by usuario.nome;
 		
-	create view Trabalhos_do_Usuario as
-		select usuario.nome as autor, usuario.email, trabalho.nome as obra, 
-			trabalho.descricao, trabalho.tag, trabalho.conteudo from usuario
-			inner join trabalho on trabalho.cod_usuario = usuario.cod_usuario;
+    create view Trabalhos_do_Usuario as
+	select usuario.nome as autor, usuario.email, trabalho.nome as obra, 
+		trabalho.descricao, trabalho.tag, trabalho.conteudo from usuario
+		inner join trabalho on trabalho.cod_usuario = usuario.cod_usuario;
 		
-	create view Atividades_do_Usuario as
-		select usuario.nome as autor, usuario.email, atividade.nome as atividade, 
-			atividade.descricao, atividade.tipo, atividade.localizacao from usuario
-			inner join atividade on atividade.cod_usuario = usuario.cod_usuario;
+    create view Atividades_do_Usuario as
+	select usuario.nome as autor, usuario.email, atividade.nome as atividade, 
+		atividade.descricao, atividade.tipo, atividade.localizacao from usuario
+		inner join atividade on atividade.cod_usuario = usuario.cod_usuario;
 		
-	create view Cursos_do_Usuario as
-		select usuario.nome as aluno, usuario.email, curso.nome as curso, 
-			curso.descricao, curso.carga_horaria , curso.numero_modulos from usuario
-			inner join curso on curso.cod_usuario = usuario.cod_usuario;
+    create view Cursos_do_Usuario as
+	select usuario.nome as aluno, usuario.email, curso.nome as curso, 
+		curso.descricao, curso.carga_horaria , curso.numero_modulos from usuario
+		inner join curso on curso.cod_usuario = usuario.cod_usuario;
 		
-	create view Quantidade_de_trabalhos_por_mes as
-		select usuario.nome, count(trabalho.nome) as quantidade, extract(month from trabalho.data_hora) as mes, extract(year from trabalho.data_hora) as ano from usuario 
-			inner join trabalho on trabalho.cod_usuario = usuario.cod_usuario
-			group by usuario.nome, extract(month from trabalho.data_hora), extract(year from trabalho.data_hora);
+    create view Quantidade_de_trabalhos_por_mes as
+	select usuario.nome, count(trabalho.nome) as quantidade, extract(month from trabalho.data_hora) as mes, extract(year from trabalho.data_hora) as ano from usuario 
+		inner join trabalho on trabalho.cod_usuario = usuario.cod_usuario
+		group by usuario.nome, extract(month from trabalho.data_hora), extract(year from trabalho.data_hora);
 		
-	create view Quantidade_de_atividades_por_mes as	
-		select usuario.nome, count(atividade.nome) as quantidade, extract(month from atividade.data_hora) as mes, extract(year from atividade.data_hora) as ano from usuario 
-			inner join atividade on atividade.cod_usuario = usuario.cod_usuario
-			group by usuario.nome, extract(month from atividade.data_hora), extract(year from atividade.data_hora);
+    create view Quantidade_de_atividades_por_mes as	
+	select usuario.nome, count(atividade.nome) as quantidade, extract(month from atividade.data_hora) as mes, extract(year from atividade.data_hora) as ano from usuario 
+		inner join atividade on atividade.cod_usuario = usuario.cod_usuario
+		group by usuario.nome, extract(month from atividade.data_hora), extract(year from atividade.data_hora);
     
 
 #### 9.10	SUBCONSULTAS (Mínimo 4)<br>
-	SELECT nome, count(*) FROM "usuario" Group by nome
+    SELECT nome, count(*) FROM "usuario" Group by nome
 	SELECT tag,count(*) FROM "trabalho" group by tag
 	SELECT seguindo,count(*) FROM "seguir" where seguindo in (3) group by seguindo
 	SELECT * from usuario inner join profissao on cod_usuario = codigo
