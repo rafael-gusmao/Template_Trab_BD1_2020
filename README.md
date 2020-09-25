@@ -392,20 +392,42 @@ insert into CURSO values
 Operadores de Like
     
     select nome, telefone, data_nascimento from usuario where nome ilike 'm%';
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData1.png "LikeEData1")
+
     select nome, telefone, data_nascimento from usuario where telefone like '%4';
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData2.png "LikeEData2")
+    
     select nome, descricao, carga_horaria, numero_modulos from curso where nome not like '%exercitar%';
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData3.png "LikeEData3")
+    
     select nome, conteudo, tag, descricao from trabalho where descricao like '%p_';
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData4.png "LikeEData4")
+    
     select * from atividade where localizacao not like '_i%';
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData5.png "LikeEData5")
     
 Operadores de DATAS
     
     select nome, email, data_nascimento, date_part('year', (age(current_date, data_nascimento))) as idade from usuario;
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData6.png "LikeEData6")
+
     select nome, current_date - (data_hora) as tempo_de_publicação from trabalho;
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData7.png "LikeEData7")
+    
     select nome, current_date - (data_hora) as tempo_de_publicação from atividade;
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData8.png "LikeEData8")
+
     select nome, extract('month' from data_hora) as mes_de_publicacao from atividade;
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData9.png "LikeEData9")
+   
     select nome, date_part('month', data_nascimento) as mes_de_aniversario from usuario;
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData10.png "LikeEData10")
+    
     select now(), data_hora as data_da_publicação from atividade;
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData11.png "LikeEData11")
+    
     select nome, conteudo, data_hora, tag, descricao from trabalho t2 where conteudo ilike 'm%';
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData12.png "LikeEData12")
 
 OBS: não foi possivel usar o current_time pois os formatos de nenhuma data armazenada no banco tem compatibilidade 
 
