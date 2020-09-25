@@ -352,32 +352,32 @@ insert into CURSO values
     select * from  trabalho where tag = 'Arte';
 
 #### 9.3	CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)
-   ```
+   
 	SELECT * FROM "atividade" where cod_usuario > 1 and tipo = 'Física'
-	![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos1.png "OP_Logicos1")
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos1.png "OP_Logicos1")
 	SELECT * FROM "atividade" where cod_usuario >= 2 or tipo = 'Física'
-	![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos3.png "OP_Logicos3")
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos3.png "OP_Logicos3")
 	SELECT * FROM "endereco" where not estado = 'ES'
-	![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos2.png "OP_Logicos2")
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos2.png "OP_Logicos2")
 	SELECT * FROM "curso" where carga_horaria > 0 and cod_usuario = 1
-	![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos4.png "OP_Logicos4")
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos4.png "OP_Logicos4")
 	SELECT * FROM "trabalho" where tag = 'Literatura' or tag = 'Texto'
-	![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos5.png "OP_Logicos5")
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos5.png "OP_Logicos5")
 	
 	SELECT carga_horaria*5 as carga_horaria_semanal FROM curso
-	![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos6.png "OP_Logicos6")
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos6.png "OP_Logicos6")
 	SELECT cod_trabalho+1 as cod_trabalho FROM trabalho
-	![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos7.png "OP_Logicos7")
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos7.png "OP_Logicos7")
 	SELECT numero-1 as numero FROM endereco
-	![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos8.png "OP_Logicos8")
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos8.png "OP_Logicos8")
 	
 	SELECT * FROM "atividade" as ATV
-	![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos9.png "OP_Logicos9")
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos9.png "OP_Logicos9")
 	SELECT * FROM "atividade" as ATV_Fisicas where tipo='Física'
-	![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos10.png "OP_Logicos10")
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos10.png "OP_Logicos10")
 	SELECT * FROM "profissao" as Professores where nome = 'Professor' 
-	![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos11.png "OP_Logicos11")
-  ```
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos11.png "OP_Logicos11")
+
 
 #### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
     
