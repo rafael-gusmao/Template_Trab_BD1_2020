@@ -620,14 +620,14 @@ VIEW
 	select e.estado, count(e.estado) as quantidade_usuarios from endereco e 
 		group by e.estado order by quantidade_usuarios desc
 		
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Relatorio/Relatorio%202/Tabela.png "tabela 2")
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Relatorio/Relatorio%202/tabela.png "tabela 2")
 
 ![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Relatorio/Relatorio%202/relatorio.png "relatorio 2")
 
 	Pode-se observar que no momento em que a analise foi feita o estado com em que rede social mais deu certo foi no Espirito Santo.
 	
 	
-    
+#### Observação: É importante lembrar que por se tratar de uma rede social os relatorios podem acabar sendo muito semelhantes, para não acontecer esse relatorios repetitivos, nós optamos por fazer um diferente para cada tipo de postagem do usuario (Trabalho, Atividade e Curso), mas basicamente o mesmo relatorio que foi gerado para descobrir o numero de atividades postadas no mês (Relatorio 3) serve tambem para a tabela curso e trabalho, o mesmo vale para o Relatorio 5.
 
 ### 11	AJUSTES DA DOCUMENTAÇÃO, CRIAÇÃO DOS SLIDES E VÍDEO PARA APRESENTAÇAO FINAL <br>
 
