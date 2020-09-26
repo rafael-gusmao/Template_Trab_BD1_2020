@@ -598,9 +598,19 @@ VIEW
 
 ### 10 RELATÓRIOS E GRÁFICOS
 
-#### a) análises e resultados provenientes do banco de dados desenvolvido (usar modelo disponível)
-#### b) link com exemplo de relatórios será disponiblizado pelo professor no AVA
-#### OBS: Esta é uma atividade de grande relevância no contexto do trabalho. Mantenha o foco nos 5 principais relatórios/resultados visando obter o melhor resultado possível.
+#### Relatório 1
+#### Objetivo: Obter relatório que mostre os perfis com mais seguidores da rede social
+##### Código para obtenção do resultado:
+	
+	select usuario.nome, count(u.nome) as numero_seguidores 
+               from usuario inner join seguir on seguir.seguindo = usuario.cod_usuario 
+               inner join usuario u on u.cod_usuario = seguir.seguidor group by usuario.nome;
+	       
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Relatorio/Relatorio%201/Tabela.png "tabela 1")
+
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Relatorio/Relatorio%201/relatorio.png "relatorio 1")
+
+	Pode-se reparar que no momento em que analise foi feita o usuario com maior numero de seguidores é a Marina Dias.
 
     
 
