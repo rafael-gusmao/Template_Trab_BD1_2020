@@ -599,7 +599,7 @@ VIEW
 ### 10 RELATÓRIOS E GRÁFICOS
 
 #### Relatório 1
-#### Objetivo: Obter relatório que mostre os perfis com mais seguidores da rede social
+#### Objetivo: Obter relatório que mostre os cinco perfis com mais seguidores da rede social
 ##### Código para obtenção do resultado:
 	
 	select usuario.nome, count(u.nome) as numero_seguidores 
@@ -611,7 +611,22 @@ VIEW
 ![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Relatorio/Relatorio%201/relatorio.png "relatorio 1")
 
 	Pode-se reparar que no momento em que analise foi feita o usuario com maior numero de seguidores é a Marina Dias.
+	
+	
+#### Relatório 2
+#### Objetivo: Obter relatorio que mostre o numero de usuarios da rede social por estado
+##### Código para obtenção do resultado:
 
+	select e.estado, count(e.estado) as quantidade_usuarios from endereco e 
+		group by e.estado order by quantidade_usuarios desc
+		
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Relatorio/Relatorio%202/Tabela.png "tabela 2")
+
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Relatorio/Relatorio%202/relatorio.png "relatorio 2")
+
+	Pode-se observar que no momento em que a analise foi feita o estado com em que rede social mais deu certo foi no Espirito Santo.
+	
+	
     
 
 ### 11	AJUSTES DA DOCUMENTAÇÃO, CRIAÇÃO DOS SLIDES E VÍDEO PARA APRESENTAÇAO FINAL <br>
