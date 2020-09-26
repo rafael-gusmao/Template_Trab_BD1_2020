@@ -347,46 +347,97 @@ insert into CURSO values
 
 #### 9.2	CONSULTAS DAS TABELAS COM FILTROS WHERE (Mínimo 4)<br>
     select * from atividade where localizacao = 'Serra';
+   ![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_2/92_1.png)
+    
     select nome, telefone, data_nascimento from usuario where sexo = 'F';
+   ![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_2/92_2.png)
+    
     select nome, descricao, carga_horaria, numero_modulos from curso where carga_horaria >= 30;
+   ![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_2/92_3.png)
+    
     select * from  trabalho where tag = 'Arte';
+   ![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_2/92_4.png) 
+
+
+
 
 #### 9.3	CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)
-   ```
+ 
 	SELECT * FROM "atividade" where cod_usuario > 1 and tipo = 'Física'
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos1.png "OP_Logicos1")
+
 	SELECT * FROM "atividade" where cod_usuario >= 2 or tipo = 'Física'
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos3.png "OP_Logicos3")
+
 	SELECT * FROM "endereco" where not estado = 'ES'
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos2.png "OP_Logicos2")
+
 	SELECT * FROM "curso" where carga_horaria > 0 and cod_usuario = 1
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos4.png "OP_Logicos4")
+
 	SELECT * FROM "trabalho" where tag = 'Literatura' or tag = 'Texto'
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos5.png "OP_Logicos5")
 	
+	SELECT carga_horaria*5 as carga_horaria_semanal FROM curso
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos6.png "OP_Logicos6")
+
 	SELECT carga_horaria*5 as carga_horaria_semanal FROM curso 
 	SELECT cod_trabalho+1 as cod_trabalho FROM trabalho
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos7.png "OP_Logicos7")
+
 	SELECT numero-1 as numero FROM endereco
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos8.png "OP_Logicos8")
 	
 	SELECT * FROM "atividade" as ATV
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos9.png "OP_Logicos9")
+
 	SELECT * FROM "atividade" as ATV_Fisicas where tipo='Física'
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos10.png "OP_Logicos10")
+
 	SELECT * FROM "profissao" as Professores where nome = 'Professor' 
-  ```
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_3/OP_Logicos11.png "OP_Logicos11")
 
 #### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
     
 Operadores de Like
     
-    select nome, telefone, data_nascimento from usuario where nome ilike 'm%';
-    select nome, telefone, data_nascimento from usuario where telefone like '%4';
-    select nome, descricao, carga_horaria, numero_modulos from curso where nome not like '%exercitar%';
-    select nome, conteudo, tag, descricao from trabalho where descricao like '%p_';
-    select * from atividade where localizacao not like '_i%';
+  	select nome, telefone, data_nascimento from usuario where nome ilike 'm%';
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData1.png "LikeEData1")
+
+	select nome, telefone, data_nascimento from usuario where telefone like '%4';
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData2.png "LikeEData2")
+
+	select nome, descricao, carga_horaria, numero_modulos from curso where nome not like '%exercitar%';
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData3.png "LikeEData3")
+
+	select nome, conteudo, tag, descricao from trabalho where descricao like '%p_';
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData4.png "LikeEData4")
+
+	select * from atividade where localizacao not like '_i%';
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData5.png "LikeEData5")
     
 Operadores de DATAS
     
     select nome, email, data_nascimento, date_part('year', (age(current_date, data_nascimento))) as idade from usuario;
-    select nome, current_date - (data_hora) as tempo_de_publicação from trabalho;
-    select nome, current_date - (data_hora) as tempo_de_publicação from atividade;
-    select nome, extract('month' from data_hora) as mes_de_publicacao from atividade;
-    select nome, date_part('month', data_nascimento) as mes_de_aniversario from usuario;
-    select now(), data_hora as data_da_publicação from atividade;
-    select nome, conteudo, data_hora, tag, descricao from trabalho t2 where conteudo ilike 'm%';
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData6.png "LikeEData6")
+
+	select nome, current_date - (data_hora) as tempo_de_publicação from trabalho;
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData7.png "LikeEData7")
+
+	select nome, current_date - (data_hora) as tempo_de_publicação from atividade;
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData8.png "LikeEData8")
+
+	select nome, extract('month' from data_hora) as mes_de_publicacao from atividade;
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData9.png "LikeEData9")
+
+	select nome, date_part('month', data_nascimento) as mes_de_aniversario from usuario;
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData10.png "LikeEData10")
+
+	select now(), data_hora as data_da_publicação from atividade;
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData11.png "LikeEData11")
+
+	select nome, conteudo, data_hora, tag, descricao from trabalho t2 where conteudo ilike 'm%';
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_4/LikeEData12.png "LikeEData12")
 
 OBS: não foi possivel usar o current_time pois os formatos de nenhuma data armazenada no banco tem compatibilidade 
 
@@ -395,12 +446,22 @@ OBS: não foi possivel usar o current_time pois os formatos de nenhuma data arma
 	start transaction;
 
 	update profissao set nome = 'Chef' where nome = 'Cozinheiro';
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_5/Update1.png "Update1")
+
 	update endereco set numero = 374 where bairro = 'Alto da Serra';
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_5/Update2.png "Update2")
+
 	update atividade set tipo = 'Aeróbica' where cod_atividade = 1;
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_5/Update3.png "Update3")
 
 	delete from profissao where codigo > 6;
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_5/Delete1.png "Delete1")
+
 	delete from endereco where estado = 'RS';
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_5/Delete2.png "Delete2")
+
 	delete from atividade where cod_usuario = 4;
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_5/Delete3.png "Delete3")
 
 	commit;
 
@@ -415,7 +476,12 @@ OBS: não foi possivel usar o current_time pois os formatos de nenhuma data arma
 	inner join atividade on atividade.cod_usuario = usuario.cod_usuario
 	inner join curso on curso.cod_usuario = usuario.cod_usuario
       	inner join trabalho on trabalho.cod_usuario = usuario.cod_usuario;
+	
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/tree/master/images/Consultas/9_6/96-1.png)
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/tree/master/images/Consultas/9_6/96-2.png)
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/tree/master/images/Consultas/9_6/96-3.png)
 
+ 
 #### 9.7	CONSULTAS COM GROUP BY E FUNÇÕES DE AGRUPAMENTO (Mínimo 6)<br>
 
 	select e.estado, count(e.estado) as qtd_usuarios from endereco e group by e.estado order by qtd_usuarios desc
