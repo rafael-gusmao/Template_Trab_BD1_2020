@@ -477,21 +477,32 @@ OBS: não foi possivel usar o current_time pois os formatos de nenhuma data arma
 	inner join curso on curso.cod_usuario = usuario.cod_usuario
       	inner join trabalho on trabalho.cod_usuario = usuario.cod_usuario;
 	
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/tree/master/images/Consultas/9_6/96-1.png)
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/tree/master/images/Consultas/9_6/96-2.png)
-![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/tree/master/images/Consultas/9_6/96-3.png)
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_6/96-1.png)
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_6/96-2.png)
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_6/96-3.png)
 
  
 #### 9.7	CONSULTAS COM GROUP BY E FUNÇÕES DE AGRUPAMENTO (Mínimo 6)<br>
 
 	select e.estado, count(e.estado) as qtd_usuarios from endereco e group by e.estado order by qtd_usuarios desc
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_7/97_1.png)
+
 	select tipo, count(tipo) from atividade group by tipo order by count(tipo) desc
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_7/97_2.png)
 
 #### 9.8	CONSULTAS COM LEFT, RIGHT E FULL JOIN (Mínimo 4)<br>
    	SELECT * FROM usuario a full join atividade b on a.cod_usuario = b.cod_usuario
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_8/98_1.png)
+	
 	SELECT * FROM usuario a left outer join curso b on a.cod_usuario = b.cod_usuario
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_8/98_2.png)
+
 	SELECT * FROM endereco right outer join usuario on codigo = cod_usuario
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_8/98_3.png)
+
 	SELECT * FROM usuario a full outer join trabalho b on a.cod_usuario = b.cod_usuario
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_8/98_4.png)
+
 #### 9.9	CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
 
 SELF JOIN
@@ -506,11 +517,13 @@ Esse select irá retornar quem são os seguidores de cada usuario
 	inner join seguir on seguir.seguindo = usuario.cod_usuario 
 	inner join usuario u on u.cod_usuario = seguir.seguidor;
 
+
 Esse select irá retornar quantos seguidores os usuario tem
 
    	select usuario.nome, count(u.nome) from usuario 
 	inner join seguir on seguir.seguindo = usuario.cod_usuario 
 	inner join usuario u on u.cod_usuario = seguir.seguidor group by usuario.nome;
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_9/99_1-99_2.png)
 		
 VIEW
     
@@ -520,48 +533,64 @@ VIEW
 		endereco.cidade, endereco.bairro, endereco.numero, profissao.nome as profissao, profissao.empresa, profissao.descricao from usuario 
 		inner join endereco on endereco.codigo = usuario.endereco 
 		inner join profissao on profissao.codigo = usuario.profissao;
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_9/View_99_1.png)
 		
     create view Quem_Estou_Seguindo as
 	select usuario.nome as usuario, u.nome as seguindo from usuario 
 		inner join seguir on seguir.seguidor = usuario.cod_usuario 
 		inner join usuario u on u.cod_usuario = seguir.seguindo order by usuario.nome;
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_9/View_99_2.png)
 		
     create view Quem_Esta_Me_Seguindo as
 	select usuario.nome as usuario, u.nome as seguidor from usuario 
 		inner join seguir on seguir.seguindo = usuario.cod_usuario 
 		inner join usuario u on u.cod_usuario = seguir.seguidor order by usuario.nome;
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_9/View_99_3.png)
 		
     create view Trabalhos_do_Usuario as
 	select usuario.nome as autor, usuario.email, trabalho.nome as obra, 
 		trabalho.descricao, trabalho.tag, trabalho.conteudo from usuario
 		inner join trabalho on trabalho.cod_usuario = usuario.cod_usuario;
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_9/View_99_4.png)
 		
     create view Atividades_do_Usuario as
 	select usuario.nome as autor, usuario.email, atividade.nome as atividade, 
 		atividade.descricao, atividade.tipo, atividade.localizacao from usuario
 		inner join atividade on atividade.cod_usuario = usuario.cod_usuario;
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_9/View_99_5.png)
 		
     create view Cursos_do_Usuario as
 	select usuario.nome as aluno, usuario.email, curso.nome as curso, 
 		curso.descricao, curso.carga_horaria , curso.numero_modulos from usuario
 		inner join curso on curso.cod_usuario = usuario.cod_usuario;
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_9/View_99_6.png)
 		
     create view Quantidade_de_trabalhos_por_mes as
 	select usuario.nome, count(trabalho.nome) as quantidade, extract(month from trabalho.data_hora) as mes, extract(year from trabalho.data_hora) as ano from usuario 
 		inner join trabalho on trabalho.cod_usuario = usuario.cod_usuario
 		group by usuario.nome, extract(month from trabalho.data_hora), extract(year from trabalho.data_hora);
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_9/View_99_7.png)
 		
     create view Quantidade_de_atividades_por_mes as	
 	select usuario.nome, count(atividade.nome) as quantidade, extract(month from atividade.data_hora) as mes, extract(year from atividade.data_hora) as ano from usuario 
 		inner join atividade on atividade.cod_usuario = usuario.cod_usuario
 		group by usuario.nome, extract(month from atividade.data_hora), extract(year from atividade.data_hora);
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_9/View_99_8.png)
     
 
 #### 9.10	SUBCONSULTAS (Mínimo 4)<br>
-    SELECT nome, count(*) FROM "usuario" Group by nome
+    	SELECT nome, count(*) FROM "usuario" Group by nome
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_10/9_10_1.png)
+
 	SELECT tag,count(*) FROM "trabalho" group by tag
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_10/9_10_2.png)
+
 	SELECT seguindo,count(*) FROM "seguir" where seguindo in (3) group by seguindo
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_10/9_10_3.png)
+
 	SELECT * from usuario inner join profissao on cod_usuario = codigo
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_10/9_10_4.png)
+
 	
 [Link para o Colab com todas as consultas em tempo real](https://colab.research.google.com/drive/1goUWH7PVolxr9Br2OW3BNfOHtCw9Irgy?usp=sharing "Colab")
 
