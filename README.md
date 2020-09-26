@@ -618,16 +618,54 @@ VIEW
 ##### Código para obtenção do resultado:
 
 	select e.estado, count(e.estado) as quantidade_usuarios from endereco e 
-		group by e.estado order by quantidade_usuarios desc
+	group by e.estado order by quantidade_usuarios desc
 		
 ![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Relatorio/Relatorio%202/tabela.png "tabela 2")
 
 ![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Relatorio/Relatorio%202/relatorio.png "relatorio 2")
 
-	Pode-se observar que no momento em que a analise foi feita o estado com em que rede social mais deu certo foi no Espirito Santo.
+	Pode-se observar que no momento em que a análise foi feita o estado com em que rede social mais deu certo foi no Espirito Santo.
 	
 	
+
+#### Relatório 3
+#### Objetivo: Obter relatório que mostre a quantidade de Atividades postadas em cada mes acumulado de todos os anos.
+##### Código para obtenção do resultado:
+	select count(atividade.nome) as quantidade_atividade, extract(month from atividade.data_hora) as mes from usuario 
+	inner join atividade on atividade.cod_usuario = usuario.cod_usuario
+	group by  extract(month from atividade.data_hora) order by extract(month from atividade.data_hora);
+
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Relatorio/Relatorio%203/1.png)
+
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Relatorio/Relatorio%203/2.png)
+	
+	Pode-se observar que no momento da análise o mês 5 foi o mês de maior número de atividades, e o meses 2 e 3 não houveram atividades
+	
+#### Relatório 4
+#### Objetivo: Obter relatorio que retorne as tags mais utilizadas quando um usuario posta um trabalho.
+##### Código para obtenção do resultado:
+	SELECT tag,count(*) as quantidade_trabalho FROM trabalho group by tag order by tag
+	
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Relatorio/Relatorio%204/1.png)
+
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Relatorio/Relatorio%204/2.png)
+
+	Pode-se observar que no momento da análise a tag Arte e Aula empataram com o maior número de trabalhos
+	
+#### Relatório 5
+#### Objetivo: Obter relatorio que retorne a quantidade de cursos cadastrados por cada usuario
+##### Código para obtenção do resultado:
+	select usuario.nome as aluno, count(curso.nome) as quantidade_curso 
+	from usuario inner join curso on curso.cod_usuario = usuario.cod_usuario group by usuario.nome order by usuario.nome;
+
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Relatorio/Relatorio%205/1.png)
+
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Relatorio/Relatorio%205/2.png)
+
+	Neste relatório, vemos que a média de cursos por pessoa é de aproximadamente 1.5 
+
 #### Observação: É importante lembrar que por se tratar de uma rede social os relatorios podem acabar sendo muito semelhantes, para não acontecer esse relatorios repetitivos, nós optamos por fazer um diferente para cada tipo de postagem do usuario (Trabalho, Atividade e Curso), mas basicamente o mesmo relatorio que foi gerado para descobrir o numero de atividades postadas no mês (Relatorio 3) serve tambem para a tabela curso e trabalho, o mesmo vale para o Relatorio 5.
+
 
 ### 11	AJUSTES DA DOCUMENTAÇÃO, CRIAÇÃO DOS SLIDES E VÍDEO PARA APRESENTAÇAO FINAL <br>
 
