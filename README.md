@@ -13,9 +13,9 @@ Rafael de Almeida Viana Gusmão: rafaelvgusmao@yahoo.com.br<br>
 ### 2.INTRODUÇÃO E MOTIVAÇÃO<br>
 Este documento contém a especificação do projeto do banco de dados ATVGen e motivação da escolha realizada. <br>
  
-O sistema ATVGen tem como objetivo solucionar problemas de ociosidade que muitas pessoas estão enfrentando durante este período de quarentena. Diante desse cenário de  isolamento social, muitas pessoas tiveram suas principais atividades paralizadas, tais como escolas, faculdades, cursos presenciais, prática de esportes coletivos, trabalho, entre outros. Para melhor aproveitar o tempo ocioso, muitas pessoas começaram a procurar maneiras de ocupar seu tempo livre, buscando cursos para aprendizado, aprendendo novas receitas, fazendo trabalhos artísticos (fanart, escrever, pintar, tirinhas), entre outras atividades.
+O sistema ATVGen tem como objetivo solucionar problemas de ociosidade que diversas pessoas estão enfrentando durante este período de quarentena. Diante desse cenário de  isolamento social, muitas pessoas tiveram suas principais atividades paralizadas, tais como escolas, faculdades, cursos presenciais, prática de esportes coletivos, trabalho, entre outros. Para melhor aproveitar o tempo ocioso, muitas pessoas começaram a procurar maneiras de ocupar seu tempo livre, buscando cursos para aprendizado, aprendendo novas receitas, fazendo trabalhos artísticos (fanart, escrever, pintar, tirinhas), entre outras atividades.
 
-O objetivo do sistema ATVGen é criar uma comunidade/rede social, na qual pessoas possam encontrar atividades para praticar em seu tempo livre, a partir de outras pessoas que têm gostos semelhantes. O sistema pretende armazenar um grande número de atividades dos mais diversos tipos, desde cursos online até trabalhos artísticos, sendo capaz de recomendar a cada usuário atividades que possam ser do seu interesse. Cada usuário terá a possibilidade de sugerir novas atividades, registrar suas atividades e seguir outros usuários que sejam do seu interesse.<br>
+O objetivo do sistema ATVGen é criar uma comunidade/rede social, na qual pessoas possam encontrar atividades para praticar em seu tempo livre, a partir de outras pessoas que têm gostos semelhantes. O sistema pretende armazenar um grande número de atividades dos mais diversos tipos, desde cursos online até trabalhos artísticos, sendo capaz de recomendar a cada usuário atividades que possam ser do seu interesse. Cada usuário terá a possibilidade de sugerir novas atividades, registrar suas atividades e seguir outros usuários que possuam gostos em comum.<br>
 
 
 ### 3.MINI-MUNDO<br>
@@ -50,11 +50,11 @@ O sistema proposto ATVGen conterá as informações aqui detalhadas. Dos usuári
         
     
 #### 5.1 Validação do Modelo Conceitual
-    Auxilio Juridico: Lucas Neves de Oliveira e  Marlon Santos Macedo
-    Segundo a avaliação deles não notaram em nenhum erro em nosso modelo conceitual.
+    Auxilio Jurídico: Lucas Neves de Oliveira e  Marlon Santos Macedo
+    Segundo a avaliação do grupo, não havia em nenhum erro em nosso modelo conceitual.
      
     Provisões de Emergência: Kelvin Lehrback Guilherme
-    Segundo a avaliação dele não notou nada de errado, apenas se incomodou com as entidades atividade e usuario que atividade esta vindo da esqueda para a direita, mas expliquei     que ela esta assim por limitações do brmodelo para ajeitar as conexões, e esta de cima para baixo como recomendado pelo professor, ele teve duvida com o auto relacionamento     do usuario tambem e expliquei que funciona como o twitter.
+    Segundo a avaliação do grupo, nhouve incômodo com as entidades atividade e usuário, visto que atividade está vindo da esquerda para a direita, o que aconteceu devido a limitações do BRmodelo para realizar as conexões, e, por isso, foi colocado de cima para baixo, como recomendado pelo professor. Também houve dúvidas com o auto relacionamento do usuário.
 
 #### 5.2 Descrição dos dados 
     USUARIO: Tabela que armazena as informações relativas ao usuário do sistema.
@@ -147,8 +147,8 @@ create table USUARIO (
 
 create table SEGUIR (
     codigo serial,
-    seguindo int, /*chave estrangeira, esse é o usuario que esta sendo seguido (semelhante ao TWITTER e INSTAGRAM)*/
-    seguidor int, /*chave estrangeira, esse é o usuario que irá seguir o usuario de cima*/
+    seguindo int, /*chave estrangeira, esse é o usuário que está sendo seguido (semelhante ao TWITTER e INSTAGRAM)*/
+    seguidor int, /*chave estrangeira, esse é o usuário que irá seguir o usuário de cima*/
     data_hora datetime,
     primary key(codigo)
 );
@@ -507,18 +507,18 @@ OBS: não foi possivel usar o current_time pois os formatos de nenhuma data arma
 
 SELF JOIN
      
-OBS: Em nenhum momento em nossa tabela há um relacionamento de uma tabela com ela mesma sem ter um intermediário, 
-o mais proximo que temos de um self join é o Usuario - Seguir - Usuario, 
-a tabela seguir no modelo conceitual é uma relação, caso possa ser tratada como self join ficaria da seguinte forma
+OBS: Em nenhum momento em nosso projeto há um relacionamento de uma tabela com ela mesma sem haver um intermediário. 
+O mais próximo que temos de um self join é a relação Usuario-Seguir-Usuario. 
+A tabela seguir no modelo conceitual é uma relação, caso possa ser tratada como self join ficaria da seguinte forma
 
-Esse select irá retornar quem são os seguidores de cada usuario
+Esse select irá retornar quem são os seguidores de cada usuário
 
    	select usuario.nome, u.nome from usuario 
 	inner join seguir on seguir.seguindo = usuario.cod_usuario 
 	inner join usuario u on u.cod_usuario = seguir.seguidor;
 
 
-Esse select irá retornar quantos seguidores os usuario tem
+Esse select irá retornar quantos seguidores os usuário tem
 
    	select usuario.nome, count(u.nome) from usuario 
 	inner join seguir on seguir.seguindo = usuario.cod_usuario 
@@ -610,11 +610,11 @@ VIEW
 
 ![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Relatorio/Relatorio%201/relatorio.png "relatorio 1")
 
-	Pode-se reparar que no momento em que analise foi feita o usuario com maior numero de seguidores é a Marina Dias.
+	Pode-se reparar que no momento em que análise foi feita, o usuario com maior numero de seguidores era a Marina Dias.
 	
 	
 #### Relatório 2
-#### Objetivo: Obter relatorio que mostre o numero de usuarios da rede social por estado
+#### Objetivo: Obter relatório que mostre o número de usuários da rede social por estado
 ##### Código para obtenção do resultado:
 
 	select e.estado, count(e.estado) as quantidade_usuarios from endereco e 
@@ -624,12 +624,12 @@ VIEW
 
 ![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Relatorio/Relatorio%202/relatorio.png "relatorio 2")
 
-	Pode-se observar que no momento em que a análise foi feita o estado com em que rede social mais deu certo foi no Espirito Santo.
+	Pode-se observar que no momento em que a análise foi feita, o estado em que a rede social mais deu certo foi no Espírito Santo.
 	
 	
 
 #### Relatório 3
-#### Objetivo: Obter relatório que mostre a quantidade de Atividades postadas em cada mes acumulado de todos os anos.
+#### Objetivo: Obter relatório que mostre a quantidade de Atividades postadas em cada mês, acumulado de todos os anos.
 ##### Código para obtenção do resultado:
 	select count(atividade.nome) as quantidade_atividade, extract(month from atividade.data_hora) as mes from usuario 
 	inner join atividade on atividade.cod_usuario = usuario.cod_usuario
@@ -639,10 +639,10 @@ VIEW
 
 ![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Relatorio/Relatorio%203/2.png)
 	
-	Pode-se observar que no momento da análise o mês 5 foi o mês de maior número de atividades, e o meses 2 e 3 não houveram atividades
+	Pode-se observar que no momento da análise, o mês de maio foi o de maior número de atividades, enquanto o meses de fevereiro e março não tiveram atividades.
 	
 #### Relatório 4
-#### Objetivo: Obter relatorio que retorne as tags mais utilizadas quando um usuario posta um trabalho.
+#### Objetivo: Obter relatório que retorne as tags mais utilizadas quando um usuário posta um trabalho.
 ##### Código para obtenção do resultado:
 	SELECT tag,count(*) as quantidade_trabalho FROM trabalho group by tag order by tag
 	
@@ -650,10 +650,10 @@ VIEW
 
 ![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Relatorio/Relatorio%204/2.png)
 
-	Pode-se observar que no momento da análise a tag Arte e Aula empataram com o maior número de trabalhos
+	Pode-se observar que no momento da análise, as tags Arte e Aula empataram com o maior número de trabalhos
 	
 #### Relatório 5
-#### Objetivo: Obter relatorio que retorne a quantidade de cursos cadastrados por cada usuario
+#### Objetivo: Obter relatório que retorne a quantidade de cursos cadastrados por cada usuário
 ##### Código para obtenção do resultado:
 	select usuario.nome as aluno, count(curso.nome) as quantidade_curso 
 	from usuario inner join curso on curso.cod_usuario = usuario.cod_usuario group by usuario.nome order by usuario.nome;
@@ -664,7 +664,7 @@ VIEW
 
 	Neste relatório, vemos que a média de cursos por pessoa é de aproximadamente 1.5 
 
-#### Observação: É importante lembrar que por se tratar de uma rede social os relatorios podem acabar sendo muito semelhantes, para não acontecer esse relatorios repetitivos, nós optamos por fazer um diferente para cada tipo de postagem do usuario (Trabalho, Atividade e Curso), mas basicamente o mesmo relatorio que foi gerado para descobrir o numero de atividades postadas no mês (Relatorio 3) serve tambem para a tabela curso e trabalho, o mesmo vale para o Relatorio 5.
+#### Observação: É importante lembrar que, por se tratar de uma rede social, os  relatórios podem acabar sendo muito semelhantes. Para não acontecerem relatórios repetitivos, optamos por fazer um gráfico diferente para cada tipo de postagem do usuário (Trabalho, Atividade e Curso), mas basicamente o mesmo relatório que foi gerado para descobrir o número de atividades postadas no mês (Relatório 3), serve também para a tabela curso e trabalho. O mesmo vale para o Relatório 5.
 
 
 ### 11	AJUSTES DA DOCUMENTAÇÃO, CRIAÇÃO DOS SLIDES E VÍDEO PARA APRESENTAÇAO FINAL <br>
