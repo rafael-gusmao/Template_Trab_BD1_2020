@@ -580,18 +580,19 @@ VIEW
 
 #### 9.10	SUBCONSULTAS (Mínimo 4)<br>
     	SELECT nome FROM curso where numero_modulos in (2,4)
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_10/910_1.png)
 
 
 	SELECT * FROM curso where carga_horaria > (select avg(carga_horaria) from curso)
-
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_10/910_2.png)
 
 	SELECT cod_usuario, usuario.nome, count(*) as qtd_pessoas_seguindo 
 	FROM seguir inner join usuario on usuario.cod_usuario = seguir.seguindo
 	where seguindo in (1,6) group by cod_usuario, usuario.nome
-
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_10/910_3.png)
 
 	select * from trabalho where tag in (select distinct tag from trabalho where tag<>'Arte'
-
+![Alt text](https://github.com/rafael-gusmao/TrabalhoBD-ATVGen/blob/master/images/Consultas/9_10/910_4.png)
 
 	
 [Link para o Colab com todas as consultas em tempo real](https://colab.research.google.com/drive/1goUWH7PVolxr9Br2OW3BNfOHtCw9Irgy?usp=sharing "Colab")
